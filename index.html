@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClientCode AI Innovation | Transforming Enterprises</title>
+    <meta name="description" content="Empowering Enterprises Through Advanced AI, GenAI & Machine Learning Solutions.">
+    <style>
+        /* --- 1. CSS VARIABLES & RESET --- */
+        :root {
+            --primary-blue: #0072BC;
+            --primary-green: #00A651;
+            --accent-yellow: #FDB913;
+            --accent-red: #E31E24;
+            --dark-text: #1a1a1a;
+            --light-text: #f5f5f5;
+            --bg-light: #ffffff;
+            --bg-off-white: #f8f9fa;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--bg-off-white);
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- 2. HEADER & NAVIGATION --- */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-bottom: 3px solid var(--accent-yellow);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Logo Construction */
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: conic-gradient(
+                var(--accent-red) 0% 25%, 
+                var(--accent-yellow) 25% 50%, 
+                var(--primary-green) 50% 75%, 
+                var(--primary-blue) 75% 100%
+            );
+            position: relative;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            inset: 25%; /* Creates the donut hole */
+            background: white;
+            border-radius: 50%;
+        }
+
+        .brand-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .brand-text span { color: var(--accent-red); }
+        .brand-sub { font-size: 0.65rem; color: #666; font-weight: 400; letter-spacing: 0.5px; }
+
+        /* Nav Links */
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: #444;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-green);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after { width: 100%; }
+
+        .btn-cta {
+            padding: 0.6rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 114, 188, 0.3);
+            transition: var(--transition);
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 166, 81, 0.4);
+        }
+
+        /* Mobile Menu */
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+
+        /* --- 3. HERO SECTION --- */
+        .hero {
+            padding: 160px 2rem 100px;
+            background: linear-gradient(135deg, #f0f4ff 0%, #e8fff4 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative Background Elements */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            right: -5%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0,114,188,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-blue);
+            line-height: 1.2;
+        }
+
+        .hero h1 span { color: var(--primary-green); }
+        
+        .hero p {
+            font-size: 1.25rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        /* --- 4. STATS & ABOUT --- */
+        .stats-section {
+            background: white;
+            padding: 4rem 2rem;
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stats-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            padding: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 1rem;
+            border-right: 1px solid #eee;
+        }
+
+        .stat-card:last-child { border-right: none; }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label { color: #666; font-weight: 500; }
+
+        /* --- 5. SOLUTIONS CATALOG (Tabbed) --- */
+        .catalog {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            display: inline-block;
+            border-bottom: 4px solid var(--accent-yellow);
+        }
+
+        /* Category Filter Buttons */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 1.5rem;
+            border: 2px solid #eee;
+            background: white;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #666;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary-blue);
+            color: white;
+            border-color: var(--primary-blue);
+        }
+
+        /* Solutions Grid */
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .solution-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border-top: 5px solid var(--primary-blue);
+            display: flex; /* For layout */
+            flex-direction: column;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-top-color: var(--accent-yellow);
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .solution-card h3 {
+            font-size: 1.25rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .solution-card p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            padding: 0.3rem 0.8rem;
+            background: #f0f7ff;
+            color: var(--primary-blue);
+            border-radius: 15px;
+            font-weight: 600;
+        }
+        
+        /* Custom Icon Styling (as discussed in previous turn) */
+        .phone-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px; 
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--primary-blue);
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        /* --- 6. TECH STACK --- */
+        .tech-section {
+            background: #2a2a2a;
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .tech-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 3rem auto 0;
+        }
+
+        .tech-item {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* --- 7. FOOTER --- */
+        footer {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-blue) 100%);
+            color: white;
+            padding: 4rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-yellow);
+        }
+
+        .contact-list li { margin-bottom: 0.8rem; display: flex; align-items: center; gap: 10px; }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 1.5rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Hide desktop menu */
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: block; color: var(--primary-blue); }
+            
+            .hero h1 { font-size: 2.5rem; }
+            .stat-card { border-right: none; border-bottom: 1px solid #eee; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="brand">
+                <div class="logo-icon"></div>
+                <div>
+                    <div class="brand-text"><span>Client</span>Code</div>
+                    <div class="brand-sub">AI INNOVATION PVT. LTD.</div>
+                </div>
+            </a>
+            <div class="menu-toggle" id="mobile-menu-btn">☰</div>
+            <nav class="nav-links" id="nav-links">
+                <a href="#hero">Home</a>
+                <a href="#solutions">AI Solutions</a>
+                <a href="#tech">Technology</a>
+                <a href="#contact" class="btn-cta">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="hero">
+        <h1>Transforming Business<br>with <span>Intelligent Solutions</span></h1>
+        <p>Empowering Enterprises Through Advanced AI, Generative AI & Machine Learning. We streamline processes, enhance productivity, and reduce operational costs.</p>
+        <a href="#solutions" class="btn-cta" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Explore Our Catalog</a>
+    </section>
+
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">25+</div>
+                <div class="stat-label">AI Solutions Deployed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Production Ready</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Automated Support</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solutions" class="catalog">
+        <div class="section-header">
+            <h2>Our AI Solutions</h2>
+            <p>Filter by category to find the perfect tool for your business needs.</p>
+        </div>
+
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="conversational">Conversational AI</button>
+            <button class="filter-btn" data-filter="docs">Document Intel</button>
+            <button class="filter-btn" data-filter="search">Search & Query</button>
+            <button class="filter-btn" data-filter="agents">AI Agents</button>
+            <button class="filter-btn" data-filter="tools">Business Tools</button>
+            <button class="filter-btn" data-filter="core_dev">Core Dev & Marketing</button>
+        </div>
+
+        <div class="solutions-grid" id="solutions-container">
+            </div>
+    </section>
+
+    <section id="tech" class="tech-section">
+        <h2 style="color: var(--accent-yellow); margin-bottom: 1rem;">Our Technology Stack</h2>
+        <p>Built on the world's most advanced platforms</p>
+        <div class="tech-grid">
+            <div class="tech-item">OpenAI GPT-4</div>
+            <div class="tech-item">Azure AI Services</div>
+            <div class="tech-item">RAG Architecture</div>
+            <div class="tech-item">Computer Vision</div>
+            <div class="tech-item">NLP to SQL</div>
+            <div class="tech-item">Chain-of-Prompts</div>
+            <div class="tech-item">Python / TensorFlow</div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="brand" style="margin-bottom: 1rem;">
+                    <div class="logo-icon" style="background: white; width: 40px; height: 40px;">
+                        <div class="logo-icon" style="position:absolute; width:100%; height:100%; opacity:0.8;"></div>
+                    </div>
+                    <div class="brand-text">ClientCode</div>
+                </div>
+                <p>Revolutionizing how organizations interact with complex data through AI.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul class="contact-list">
+                    <li>📧 info@clientcodeai.in</li>
+                    <li>📞 +91-9958821387</li>
+                    <li>☎ +91-129-28425452</li>
+                    <li>📍 102, SRS CORPORATE TOWER, NH-19, Sector 31, Faridabad, Haryana 121003, India</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="contact-list">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#solutions">Solutions Catalog</a></li>
+                    <li><a href="#tech">Technology</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2025 ClientCode AI Innovation Pvt. Ltd. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        // 1. DATA: The 27 Services from the Catalog (Updated)
+        const solutionsData = [
+            // Conversational
+            { id: 1, cat: 'conversational', title: "Smart AI Assistant", desc: "Real-time AI assistant for instant customer inquiries with context awareness.", tags: ["GPT", "Session Mgmt"] },
+            { id: 2, cat: 'conversational', title: "Form Filling Chatbot", desc: "Guides users through complex forms with real-time validation.", tags: ["Automation", "Validation"] },
+            { id: 3, cat: 'conversational', title: "Knowledge Base Chatbot", desc: "Answers from your specific company policies and docs.", tags: ["RAG", "Rules Engine"] },
+            
+            // Document Intelligence
+            { id: 4, cat: 'docs', title: "Automated Report Gen", desc: "Creates reports from meeting transcripts and recordings.", tags: ["Speech-to-Text", "Azure"] },
+            { id: 5, cat: 'docs', title: "Text Summarization", desc: "Concise summaries of complex business documents.", tags: ["Chain-of-Prompts"] },
+            { id: 6, cat: 'docs', title: "Document Q&A", desc: "Chat with your PDF/Docs and get cited answers.", tags: ["RAG", "LLM"] },
+            { id: 7, cat: 'docs', title: "Intelligent Extraction", desc: "Extracts metadata from PDFs, images, and scans.", tags: ["OCR", "Vision"] },
+            { id: 8, cat: 'docs', title: "Anomaly Detection", desc: "Flags inconsistencies and potential issues in docs.", tags: ["Vision LLM"] },
+            { id: 9, cat: 'docs', title: "Metadata Classifier", desc: "Auto-categorization of unstructured files.", tags: ["Classification"] },
+
+            // Search
+            { id: 10, cat: 'search', title: "NLP to SQL Converter", desc: "Turn English questions into database queries instantly.", tags: ["SQL", "Analytics"] },
+            { id: 11, cat: 'search', title: "Intelligent Doc Search", desc: "Deep search inside large repositories for specific details.", tags: ["Semantic Search"] },
+            { id: 12, cat: 'search', title: "Database Insights", desc: "Extract patterns and insights from raw SQL data.", tags: ["Data Analysis"] },
+
+            // Agents
+            { id: 13, cat: 'agents', title: "Research Agent", desc: "Autonomous agent that retrieves knowledge from web/internal sources.", tags: ["Web Search", "RAG"] },
+            { id: 14, cat: 'agents', title: "Image Analysis Agent", desc: "Describes charts, diagrams, and visual content textually.", tags: ["Vision LLM"] },
+            { id: 15, cat: 'agents', title: "Key Info Extractor", desc: "Identifies entities (names, dates, sums) automatically.", tags: ["NER"] },
+            { id: 16, cat: 'agents', title: "Doc Parsing Agent", desc: "Maintains document relationships while parsing.", tags: ["Parsing"] },
+            { id: 17, cat: 'agents', title: "Timeline Generator", desc: "Creates chronological event views from text history.", tags: ["Visualization"] },
+            { id: 18, cat: 'agents', title: "Content Categorizer", desc: "Sorts specific content types for efficient retrieval.", tags: ["Sorting"] },
+            { id: 19, cat: 'agents', title: "Quality Assessment", desc: "Scores data completeness and reliability.", tags: ["QA"] },
+            { id: 20, cat: 'agents', title: "Decision Support", desc: "Provides data-driven recommendations for executives.", tags: ["Strategy"] },
+            { id: 21, cat: 'agents', title: "Report Writing Agent", desc: "Drafts professional formatted business reports.", tags: ["GenAI"] },
+
+            // Tools
+            { id: 22, cat: 'tools', title: "Content Builder", desc: "Step-by-step wizard for creating business content.", tags: ["Writing Aid"] },
+            { id: 23, cat: 'tools', title: "Doc Review Helper", desc: "Validates contracts and suggests improvements.", tags: ["Legal Tech"] },
+            { id: 24, cat: 'tools', title: "Smart Matching", desc: "Matches requirements with optimal vendors/resources.", tags: ["Recommendation"] },
+            { id: 25, cat: 'tools', title: "Auto Scheduler", desc: "Optimizes calendar planning based on constraints.", tags: ["Optimization"] },
+            
+            // Core Development & Marketing (NEW ADDITION)
+            { id: 26, cat: 'core_dev', title: "IOS, Android & Mobile App Development", desc: "Building robust, high-performance native and cross-platform mobile applications.", tags: ["Swift", "Kotlin", "React Native"] },
+            { id: 27, cat: 'core_dev', title: "Website Development & Digital Marketing", desc: "Full-stack website creation, SEO, content strategy, and performance optimization.", tags: ["HTML5", "CSS3", "JavaScript", "SEO", "Content"] },
+        ];
+
+        // 2. RENDER LOGIC
+        const grid = document.getElementById('solutions-container');
+        const buttons = document.querySelectorAll('.filter-btn');
+
+        function renderCards(filter) {
+            grid.innerHTML = '';
+            
+            const filteredData = filter === 'all' 
+                ? solutionsData 
+                : solutionsData.filter(item => item.cat === filter);
+
+            // Animation delay setup
+            let delay = 0;
+
+            filteredData.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'solution-card';
+                // Add simple fade-in animation style
+                card.style.animation = `fadeIn 0.5s ease forwards ${delay}s`;
+                card.style.opacity = '0'; // Start hidden for animation
+                
+                // Construct Tags HTML
+                const tagsHtml = item.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+
+                card.innerHTML = `
+                    <div class="card-icon">${item.id}</div>
+                    <h3>${item.title}</h3>
+                    <p>${item.desc}</p>
+                    <div class="tags">${tagsHtml}</div>
+                `;
+                grid.appendChild(card);
+                delay += 0.05; // Stagger effect
+            });
+
+            // If no results
+            if(filteredData.length === 0) {
+                grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">No solutions found in this category.</p>';
+            }
+        }
+
+        // 3. FILTER EVENT LISTENERS
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all
+                buttons.forEach(b => b.classList.remove('active'));
+                // Add active to clicked
+                btn.classList.add('active');
+                // Render new category
+                renderCards(btn.dataset.filter);
+            });
+        });
+
+        // 4. MOBILE MENU LOGIC
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // 5. ADD ANIMATION KEYFRAMES DYNAMICALLY
+        const styleSheet = document.createElement("style");
+        styleSheet.innerText = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(styleSheet);
+
+        // Initial Render
+        renderCards('all');
+
+    </script>
+</body>
+</html>
