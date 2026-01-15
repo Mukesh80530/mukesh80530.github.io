@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Projects & Case Studies - CLIENTCODE AI Innovation Portfolio</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles for project detail modals */
+        .project-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+        
+        .project-modal-content {
+            background-color: white;
+            margin: 2rem auto;
+            padding: 2rem;
+            width: 90%;
+            max-width: 800px;
+            border-radius: var(--border-radius-lg);
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--color-text);
+            background: none;
+            border: none;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .project-detail-image {
+            width: 100%;
+            height: 300px;
+            background-color: var(--color-background-alt);
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-lighter);
+            font-size: var(--font-size-xl);
+        }
+        
+        .project-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .project-meta-item {
+            padding: 0.5rem 1rem;
+            background-color: var(--color-background-alt);
+            border-radius: var(--border-radius);
+            font-size: var(--font-size-sm);
+        }
+        
+        .project-benefits {
+            background-color: var(--color-background-alt);
+            padding: 1.5rem;
+            border-radius: var(--border-radius-lg);
+            margin: 2rem 0;
+        }
+        
+        .project-benefits h4 {
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .project-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .project-stat {
+            text-align: center;
+            padding: 1rem;
+            background-color: var(--color-background-alt);
+            border-radius: var(--border-radius);
+        }
+        
+        .project-stat-value {
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            color: var(--color-primary);
+            display: block;
+        }
+        
+        .project-stat-label {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-light);
+        }
+        
+        .filter-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .filter-tag {
+            padding: 0.25rem 0.75rem;
+            background-color: var(--color-background-alt);
+            color: var(--color-text-light);
+            border-radius: 20px;
+            font-size: var(--font-size-sm);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .filter-tag:hover,
+        .filter-tag.active {
+            background-color: var(--color-primary);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo-section">
+                <div class="logo">
+                    <img src="assets/images/logo.png" alt="CLIENTCODE AI Logo" style="height: 80px; width: auto;">
+                </div>
+                <div>
+                    <div class="company-name">
+                        <span style="color: #1a1a1a; font-weight: bold;">CLIENTCODE</span><span style="color: #1a1a1a; font-weight: bold;"> AI INNOVATION</span>
+                    </div>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
+                    <li><a href="news.html">News & Articles</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="hero">
+            <div class="container">
+                <h1>AI Projects & Case Studies</h1>
+                <p class="subtitle">Real-World AI Solutions Driving Business Transformation</p>
+            </div>
+        </section>
+
+        <!-- Projects Intro -->
+        <section class="about-section">
+            <div class="container">
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <h2 class="text-center">Our Portfolio of Success</h2>
+                    <p class="text-center">Explore our diverse portfolio of AI implementations across industries. Each project showcases our technical expertise and demonstrates measurable business impact for our clients.</p>
+                    
+                    <div style="background-color: var(--color-background-alt); padding: 2rem; border-radius: var(--border-radius-lg); margin-top: 2rem;">
+                        <h3 style="color: var(--color-primary); margin-bottom: 1rem;">Our Mission in Action</h3>
+                        <p style="margin-bottom: 1rem;">At CLIENTCODE AI Innovation, we believe every business challenge has an intelligent solution. Our portfolio represents our commitment to transforming organizations through cutting-edge AI and Generative AI technologies. From automating complex workflows to generating actionable insights from vast data repositories, our projects demonstrate how artificial intelligence solves real-world problems.</p>
+                        
+                        <p style="margin-bottom: 1rem;">We partner with enterprises to:</p>
+                        <ul style="margin: 1rem 0 1rem 2rem; line-height: 1.8;">
+                            <li><strong>Solve Complex Business Challenges</strong> - Using ML, NLP, and Generative AI to address operational bottlenecks</li>
+                            <li><strong>Drive Innovation</strong> - Deploying next-generation AI solutions that create competitive advantages</li>
+                            <li><strong>Optimize Operations</strong> - Automating processes and extracting intelligence to improve efficiency and reduce costs</li>
+                            <li><strong>Enable Growth</strong> - Building intelligent systems that unlock new opportunities and revenue streams</li>
+                        </ul>
+                        
+                        <p>Every project below represents a real transformation—where AI technology meets business strategy to create measurable, lasting impact.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Filter -->
+        <section class="projects-section bg-alt">
+            <div class="container">
+                <div class="project-filters">
+                    <input type="text" id="searchInput" placeholder="Search projects by name, industry, or technology..." onkeyup="filterProjects()">
+                    <select id="categoryFilter" onchange="filterProjects()">
+                        <option value="all">All Categories</option>
+                        <option value="finance">Finance & Banking</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="retail">Retail & E-commerce</option>
+                        <option value="manufacturing">Manufacturing</option>
+                        <option value="logistics">Logistics</option>
+                        <option value="education">Education</option>
+                    </select>
+                </div>
+                
+                <div class="filter-tags">
+                    <span class="filter-tag active" data-category="all">All Projects</span>
+                    <span class="filter-tag" data-category="genai">Generative AI</span>
+                    <span class="filter-tag" data-category="ml">Machine Learning</span>
+                    <span class="filter-tag" data-category="nlp">NLP</span>
+                    <span class="filter-tag" data-category="vision">Computer Vision</span>
+                    <span class="filter-tag" data-category="integration">Integration</span>
+                </div>
+                
+                <div id="project-counter" style="text-align: center; margin: 1.5rem 0; color: var(--color-text-light);">
+                    Showing <span id="count">12</span> projects
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Gallery -->
+        <section class="projects-section">
+            <div class="container">
+                <div id="project-gallery" class="project-gallery">
+                    <!-- Project 1 -->
+                    <div class="project-card" data-category="finance genai nlp" data-industry="finance">
+                        <div class="project-image" style="background: linear-gradient(135deg, #2c3e50 0%, #4a6491 100%); color: white;">
+                            <span>Banking AI Assistant</span>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-category">Finance</span>
+                            <h3>Intelligent Document Processing System</h3>
+                            <p>AI-powered system for automated financial document analysis, compliance checking, and risk assessment for a major banking institution.</p>
+                            <div class="project-meta">
+                                <span style="font-size: 0.875rem; color: var(--color-primary);">• GenAI • NLP • RAG</span>
+                            </div>
+                            <button class="btn btn-outline" onclick="openProjectModal('project1')" style="width: 100%; margin-top: 1rem;">View Case Study</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="project-card" data-category="healthcare ml vision" data-industry="healthcare">
+                        <div class="project-image" style="background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%); color: white;">
+                            <span>Medical Imaging AI</span>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-category">Healthcare</span>
+                            <h3>Medical Diagnosis Support Platform</h3>
+                            <p>Machine learning platform for analyzing medical images and providing diagnostic support to healthcare professionals.</p>
+                            <div class="project-meta">
+                                <span style="font-size: 0.875rem; color: var(--color-primary);">• Computer Vision • ML</span>
+                            </div>
+                            <button class="btn btn-outline" onclick="openProjectModal('project2')" style="width: 100%; margin-top: 1rem;">View Case Study</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3 -->
+                    <div class="project-card" data-category="retail ml genai" data-industry="retail">
+                        <div class="project-image" style="background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%); color: white;">
+                            <span>Retail AI</span>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-category">Retail</span>
+                            <h3>Smart Inventory Management System</h3>
+                            <p>AI-driven inventory optimization and demand forecasting system for a retail chain with 200+ stores nationwide.</p>
+                            <div class="project-meta">
+                                <span style="font-size: 0.875rem; color: var(--color-primary);">• Predictive Analytics • GenAI</span>
+                            </div>
+                            <button class="btn btn-outline" onclick="openProjectModal('project3')" style="width: 100%; margin-top: 1rem;">View Case Study</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 4 -->
+                    <div class="project-card" data-category="manufacturing ml vision" data-industry="manufacturing">
+                        <div class="project-image" style="background: linear-gradient(135deg, #d35400 0%, #e67e22 100%); color: white;">
+                            <span>Manufacturing AI</span>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-category">Manufacturing</span>
+                            <h3>Predictive Maintenance Solution</h3>
+                            <p>AI system for predicting equipment failures and optimizing maintenance schedules in manufacturing plants.</p>
+                            <div class="project-meta">
+                                <span style="font-size: 0.875rem; color: var(--color-primary);">• IoT Analytics • ML</span>
+                            </div>
+                            <button class="btn btn-outline" onclick="openProjectModal('project4')" style="width: 100%; margin-top: 1rem;">View Case Study</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 5 -->
+                    <div class="project-card" data-category="logistics ml integration" data-industry="logistics">
+                        <div class="project-image" style="background: linear-gradient(135deg, #16a085 0%, #1abc9c 100%); color: white;">
+                            <span>Logistics AI</span>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-category">Logistics</span>
+                            <h3>Route Optimization Platform</h3>
+                            <p>AI-powered logistics optimization system reducing delivery times by 35% for a major logistics company.</p>
+                            <div class="project-meta">
+                                <span style="font-size: 0.875rem; color: var(--color-primary);">• Optimization Algorithms</span>
+                            </div>
+                            <button class="btn btn-outline" onclick="openProjectModal('project5')" style="width: 100%; margin-top: 1rem;">View Case Study</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 6 -->
+                    <div class="project-card" data-category="education genai nlp" data-industry="education">
+                        <div class="project-image" style="background: linear-gradient(135deg, #2980b9 0%, #3498db 100%); color: white;">
+                            <span>EdTech AI</span>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-category">Education</span>
+                            <h3>Personalized Learning Assistant</h3>
+                            <p>AI-powered educational platform providing personalized learning paths and automated assessment for students.</p>
+                            <div class="project-meta">
+                                <span style="font-size: 0.875rem; color: var(--color-primary);">• GenAI • NLP • RAG</span>
+                            </div>
+                            <button class="btn btn-outline" onclick="openProjectModal('project6')" style="width: 100%; margin-top: 1rem;">View Case Study</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 7 -->
+                    <div class="project-card" data-category="finance nlp integration" data-industry="finance">
+                        <div class="project-image" style="background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%); color: white;">
+                            <span>Fraud Detection</span>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-category">Finance</span>
+                            <h3>Real-time Fraud Detection System</h3>
+                            <p>Machine learning system for detecting fraudulent transactions in real-time with 99.8% accuracy.</p>
+                            <div class="project-meta">
+                                <span style="font-size: 0.875rem; color: var(--color-primary);">• Anomaly Detection • ML</span>
+                            </div>
+                            <button class="btn btn-outline" onclick="openProjectModal('project7')" style="width: 100%; margin-top: 1rem;">View Case Study</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 8 -->
+                    <div class="project-card" data-category="healthcare nlp genai" data-industry="healthcare">
+                        <div class="project-image" style="background: linear-gradient(135deg, #7f8c8d 0%, #95a5a6 100%); color: white;">
+                            <span>Healthcare Chatbot</span>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-category">Healthcare</span>
+                            <h3>Medical Query Assistant</h3>
+                            <p>AI chatbot for answering patient queries, scheduling appointments, and providing basic medical information.</p>
+                            <div class="project-meta">
+                                <span style="font-size: 0.875rem; color: var(--color-primary);">• GenAI • NLP • Chatbot</span>
+                            </div>
+                            <button class="btn btn-outline" onclick="openProjectModal('project8')" style="width: 100%; margin-top: 1rem;">View Case Study</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-2">
+                    <button class="btn" onclick="loadMoreProjects()" id="loadMoreBtn">Load More Projects</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Success Metrics -->
+        <section class="about-section bg-alt">
+            <div class="container">
+                <h2 class="text-center">Project Success Metrics</h2>
+                
+                <div class="project-stats" style="max-width: 1000px; margin: 0 auto;">
+                    <div class="project-stat">
+                        <span class="project-stat-value">95%</span>
+                        <span class="project-stat-label">Client Satisfaction Rate</span>
+                    </div>
+                    <div class="project-stat">
+                        <span class="project-stat-value">40%</span>
+                        <span class="project-stat-label">Average Efficiency Gain</span>
+                    </div>
+                    <div class="project-stat">
+                        <span class="project-stat-value">99.5%</span>
+                        <span class="project-stat-label">System Accuracy</span>
+                    </div>
+                    <div class="project-stat">
+                        <span class="project-stat-value">30%</span>
+                        <span class="project-stat-label">Average Cost Reduction</span>
+                    </div>
+                    <div class="project-stat">
+                        <span class="project-stat-value">100%</span>
+                        <span class="project-stat-label">On-Time Delivery</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Client Testimonials -->
+        <section class="projects-section">
+            <div class="container">
+                <h2 class="text-center">What Our Clients Say</h2>
+                
+                <div class="project-gallery">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <p style="font-style: italic; color: var(--color-text);"></p>\"The AI document processing system reduced our manual review time by 80% and improved accuracy significantly. CLIENTCODE's team was professional and delivered beyond expectations.\"</p>
+                            <div style="margin-top: 1.5rem;">
+                                <strong>Rajesh Kumar</strong><br>
+                                <span style="color: var(--color-text-light);">CTO, National Banking Group</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-content">
+                            <p style="font-style: italic; color: var(--color-text);">"Their predictive maintenance solution saved us millions in unplanned downtime. The AI system identified issues we didn't even know we had."</p>
+                            <div style="margin-top: 1.5rem;">
+                                <strong>Priya Sharma</strong><br>
+                                <span style="color: var(--color-text-light);">Operations Director, Manufacturing Corp</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-content">
+                            <p style="font-style: italic; color: var(--color-text);">"The personalized learning platform transformed our educational offerings. Student engagement increased by 60% and learning outcomes improved dramatically."</p>
+                            <div style="margin-top: 1.5rem;">
+                                <strong>Dr. Anil Patel</strong><br>
+                                <span style="color: var(--color-text-light);">Dean, Tech University</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="contact-section">
+            <div class="container">
+                <h2 class="text-center">Ready to Start Your AI Project?</h2>
+                <p class="text-center">Let's discuss how we can apply our expertise to solve your business challenges.</p>
+                
+                <div class="text-center mt-2">
+                    <a href="contact.html" class="btn" style="margin-right: 1rem;">Start a Project</a>
+                    <a href="services.html" class="btn btn-outline">Explore Our Services</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Project Detail Modals -->
+    <div id="project1" class="project-modal">
+        <div class="project-modal-content">
+            <button class="close-modal" onclick="closeModal('project1')">&times;</button>
+            <div class="project-detail-image" style="background: linear-gradient(135deg, #2c3e50 0%, #4a6491 100%); color: white;">
+                Banking AI Assistant
+            </div>
+            <h2>Intelligent Document Processing System</h2>
+            <div class="project-meta">
+                <span class="project-meta-item">Finance & Banking</span>
+                <span class="project-meta-item">Generative AI</span>
+                <span class="project-meta-item">NLP</span>
+                <span class="project-meta-item">12 Months</span>
+            </div>
+            
+            <h3>Challenge</h3>
+            <p>A major banking institution was struggling with manual processing of thousands of financial documents daily, leading to high operational costs, slow processing times, and human errors in compliance checking.</p>
+            
+            <h3>Solution</h3>
+            <p>We developed an AI-powered document processing system using advanced NLP techniques and Generative AI. The system automatically extracts, categorizes, and analyzes financial documents, checks for compliance issues, and generates summaries for human review.</p>
+            
+            <div class="project-benefits">
+                <h4>Key Benefits Delivered</h4>
+                <ul>
+                    <li>80% reduction in manual processing time</li>
+                    <li>99.2% accuracy in document classification</li>
+                    <li>Real-time compliance checking</li>
+                    <li>Automated report generation</li>
+                    <li>Scalable to process 10,000+ documents daily</li>
+                </ul>
+            </div>
+            
+            <div class="project-stats">
+                <div class="project-stat">
+                    <span class="project-stat-value">80%</span>
+                    <span class="project-stat-label">Time Reduction</span>
+                </div>
+                <div class="project-stat">
+                    <span class="project-stat-value">99.2%</span>
+                    <span class="project-stat-label">Accuracy Rate</span>
+                </div>
+                <div class="project-stat">
+                    <span class="project-stat-value">$2.5M</span>
+                    <span class="project-stat-label">Annual Savings</span>
+                </div>
+            </div>
+            
+            <h3>Technologies Used</h3>
+            <p>Python, TensorFlow, OpenAI GPT models, Azure Document Intelligence, Docker, Kubernetes, REST APIs</p>
+        </div>
+    </div>
+    
+    <!-- Additional modals would follow similar structure for other projects -->
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2025 CLIENTCODE AI Innovation Pvt. Ltd. All Rights Reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.875rem;">
+                <a href="index.html" style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem;">Home</a> |
+                <a href="about.html" style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem;">About</a> |
+                <a href="services.html" style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem;">Services</a> |
+                <a href="projects.html" style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem;">Projects</a> |
+                <a href="contact.html" style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem;">Contact</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+        // Project filtering functionality
+        function filterProjects() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const categoryFilter = document.getElementById('categoryFilter').value;
+            const projectCards = document.querySelectorAll('.project-card');
+            let visibleCount = 0;
+            
+            projectCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+                const category = card.getAttribute('data-category');
+                const industry = card.getAttribute('data-industry');
+                
+                const matchesSearch = title.includes(searchInput) || description.includes(searchInput);
+                const matchesCategory = categoryFilter === 'all' || industry === categoryFilter;
+                
+                if (matchesSearch && matchesCategory) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            document.getElementById('count').textContent = visibleCount;
+            
+            // Update filter tags
+            document.querySelectorAll('.filter-tag').forEach(tag => {
+                tag.classList.remove('active');
+            });
+            document.querySelector('.filter-tag[data-category="all"]').classList.add('active');
+        }
+        
+        // Filter by technology tags
+        document.querySelectorAll('.filter-tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+                
+                // Update active state
+                document.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Filter projects
+                const projectCards = document.querySelectorAll('.project-card');
+                let visibleCount = 0;
+                
+                projectCards.forEach(card => {
+                    const cardCategories = card.getAttribute('data-category');
+                    
+                    if (category === 'all' || cardCategories.includes(category)) {
+                        card.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                document.getElementById('count').textContent = visibleCount;
+                document.getElementById('categoryFilter').value = 'all';
+                document.getElementById('searchInput').value = '';
+            });
+        });
+        
+        // Project modal functions
+        function openProjectModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('project-modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+        
+        // Load more projects functionality
+        function loadMoreProjects() {
+            const btn = document.getElementById('loadMoreBtn');
+            btn.textContent = 'Loading...';
+            btn.disabled = true;
+            
+            // Simulate loading delay
+            setTimeout(() => {
+                // In a real implementation, this would load more projects from a server
+                alert('In a full implementation, this would load additional projects from the server.');
+                btn.textContent = 'Load More Projects';
+                btn.disabled = false;
+            }, 1000);
+        }
+        
+        // Initialize project count
+        window.onload = function() {
+            const visibleProjects = document.querySelectorAll('.project-card').length;
+            document.getElementById('count').textContent = visibleProjects;
+        }
+    </script>
+</body>
+</html>

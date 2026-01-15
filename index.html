@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLIENTCODE AI Innovation - Intelligent AI Solutions</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Interactive animations for landing page */
+        .hero {
+            animation: fadeInDown 1s ease-out;
+        }
+
+        h1 {
+            animation: slideInUp 0.8s ease-out 0.2s both;
+        }
+
+        .subtitle {
+            animation: slideInUp 0.8s ease-out 0.4s both;
+        }
+
+        .tagline {
+            animation: slideInUp 0.8s ease-out 0.6s both;
+        }
+
+        .btn {
+            transition: all 0.3s ease;
+            animation: fadeIn 1s ease-out 0.8s both;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-card {
+            animation: scaleIn 0.6s ease-out;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .tech-category {
+            animation: fadeInUp 0.6s ease-out;
+            transition: all 0.3s ease;
+        }
+
+        .tech-category:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card {
+            animation: fadeInUp 0.6s ease-out;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-details, .contact-address {
+            animation: fadeInUp 0.6s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover .stat-number {
+            font-size: 3rem;
+            color: var(--primary-green);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section - Consistent across all pages -->
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo-section">
+                <div class="logo">
+                    <img src="assets/images/logo.png" alt="CLIENTCODE AI Logo" style="height: 80px; width: auto;">
+                </div>
+                <div>
+                    <div class="company-name">
+                        <span style="color: #1a1a1a; font-weight: bold;">CLIENTCODE</span><span style="color: #1a1a1a; font-weight: bold;"> AI INNOVATION</span>
+                    </div>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="news.html">News & Articles</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Transforming Business with Intelligent AI</h1>
+                <p class="subtitle">Innovative Solutions in GenAI, Machine Learning, and NLP</p>
+                <p class="tagline">Empowering Enterprises Through Advanced AI Technology</p>
+                <div class="mt-2 text-center">
+                    <a href="services.html" class="btn">Explore Our Services</a>
+                    <a href="contact.html" class="btn btn-outline" style="margin-left: 1rem;">Get Started</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Preview Section -->
+        <section class="about-section">
+            <div class="container">
+                <h2 class="text-center">About CLIENTCODE AI Innovation</h2>
+                <p class="text-center">CLIENTCODE AI Innovation Pvt. Ltd. is a leading provider of cutting-edge Artificial Intelligence, Generative AI, Machine Learning, and Natural Language Processing solutions across diverse industries.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">25+</div>
+                        <div class="stat-label">AI Solutions Deployed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Production Ready</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Automated Support</div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-2">
+                    <a href="about.html" class="btn btn-outline">Learn More About Us</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Preview Section -->
+        <section class="tech-page bg-alt">
+            <div class="container">
+                <h2 class="section-title">Our Core Services</h2>
+                <p class="text-center mb-2">We specialize in advanced AI technologies that drive business transformation</p>
+                
+                <div class="tech-categories">
+                    <div class="tech-category">
+                        <h3>AI & Machine Learning</h3>
+                        <ul>
+                            <li>Custom AI Model Development</li>
+                            <li>Predictive Analytics</li>
+                            <li>Computer Vision Solutions</li>
+                            <li>Natural Language Processing</li>
+                        </ul>
+                    </div>
+                    <div class="tech-category">
+                        <h3>Generative AI</h3>
+                        <ul>
+                            <li>LLM Integration & Fine-tuning</li>
+                            <li>RAG System Implementation</li>
+                            <li>Content Generation Systems</li>
+                            <li>Conversational AI</li>
+                        </ul>
+                    </div>
+                    <div class="tech-category">
+                        <h3>Cloud & Integration</h3>
+                        <ul>
+                            <li>Cloud Infrastructure Setup</li>
+                            <li>API Development</li>
+                            <li>System Integration</li>
+                            <li>DevOps for AI</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-2">
+                    <a href="services.html" class="btn">View All Services</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Preview Section -->
+        <section class="projects-section">
+            <div class="container">
+                <h2 class="text-center">Featured Projects</h2>
+                <p class="text-center mb-2">Explore some of our successful AI implementations across various industries</p>
+                
+                <div class="project-gallery">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <span>Finance AI Assistant</span>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-category">Banking</span>
+                            <h3>Intelligent Document Processing</h3>
+                            <p>AI-powered system for automated financial document analysis and compliance checking.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image">
+                            <span>Healthcare Analytics</span>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-category">Healthcare</span>
+                            <h3>Medical Data Analysis Platform</h3>
+                            <p>Machine learning platform for predictive analytics in patient diagnosis and treatment.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image">
+                            <span>Retail AI</span>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-category">Retail</span>
+                            <h3>Smart Inventory Management</h3>
+                            <p>AI-driven inventory optimization and demand forecasting for retail chains.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-2">
+                    <a href="projects.html" class="btn btn-outline">View All Projects</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="contact-section">
+            <div class="container">
+                <h2 class="text-center">Ready to Transform Your Business?</h2>
+                <p class="text-center">Join leading enterprises who have revolutionized their operations with our AI solutions.</p>
+                
+                <div class="contact-grid">
+                    <div class="contact-details">
+                        <h3>Get Started Today</h3>
+                        <p>📧 <a href="mailto:info@clientcodeai.in">info@clientcodeai.in</a></p>
+                        <p>📞 <a href="tel:+919958821387">+91-9958821387</a></p>
+                        <p>🌐 <a href="http://www.clientcodeai.in" target="_blank">www.clientcodeai.in</a></p>
+                        <div class="mt-2">
+                            <a href="contact.html" class="btn btn-block">Contact Us Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-address">
+                        <h3>Why Choose CLIENTCODE AI?</h3>
+                        <p><strong>Expert Team:</strong> Seasoned AI specialists with industry experience</p>
+                        <p><strong>Custom Solutions:</strong> Tailored AI implementations for your unique needs</p>
+                        <p><strong>End-to-End Support:</strong> From concept to deployment and maintenance</p>
+                        <p><strong>Proven Results:</strong> Track record of successful AI transformations</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section - Consistent across all pages -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2025 CLIENTCODE AI Innovation Pvt. Ltd. All Rights Reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.875rem;">Transforming Businesses with Intelligent AI Solutions</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

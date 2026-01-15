@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI News & Articles - CLIENTCODE AI Innovation | Latest AI Technology Updates</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Additional styles for news page */
+        .news-hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .news-hero h1 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .news-hero p {
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2em;
+        }
+        
+        .news-filters {
+            background-color: var(--bg-white);
+            padding: 30px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .filter-btn {
+            padding: 10px 25px;
+            background: var(--bg-light);
+            border: 2px solid var(--border-color);
+            border-radius: 30px;
+            color: var(--dark-text);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+            color: white;
+            border-color: var(--primary-blue);
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+            margin: 40px 0;
+        }
+        
+        .news-article {
+            background: var(--bg-white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .news-article:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 114, 188, 0.2);
+        }
+        
+        .article-image {
+            height: 200px;
+            background-color: var(--bg-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-text);
+            font-size: 1.5em;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .article-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+        }
+        
+        .article-content {
+            padding: 30px;
+        }
+        
+        .article-category {
+            display: inline-block;
+            padding: 5px 15px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .article-title {
+            color: var(--primary-blue);
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        
+        .article-excerpt {
+            color: var(--light-text);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--light-text);
+            font-size: 0.9em;
+        }
+        
+        .read-more {
+            color: var(--primary-blue);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .read-more:hover {
+            color: var(--primary-green);
+        }
+        
+        .featured-article {
+            grid-column: span 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+        
+        .featured-article .article-image {
+            height: 100%;
+            min-height: 300px;
+        }
+        
+        .featured-article .article-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .featured-article .article-category {
+            background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--primary-red) 100%);
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin: 50px 0 30px;
+        }
+        
+        .page-btn {
+            padding: 10px 20px;
+            background: var(--bg-light);
+            border: 2px solid var(--border-color);
+            border-radius: 5px;
+            color: var(--dark-text);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .page-btn:hover:not(.disabled) {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+            color: white;
+            border-color: var(--primary-blue);
+        }
+        
+        .page-btn.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .page-numbers {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .page-number {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .page-number:hover:not(.active) {
+            background-color: var(--bg-light);
+        }
+        
+        .page-number.active {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+            color: white;
+        }
+        
+        .newsletter-section {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-blue) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-top: 60px;
+            border-radius: 10px;
+        }
+        
+        .newsletter-form {
+            max-width: 600px;
+            margin: 30px auto 0;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        
+        .newsletter-btn {
+            padding: 15px 30px;
+            background: var(--primary-yellow);
+            color: var(--dark-text);
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .newsletter-btn:hover {
+            background: #f0a500;
+        }
+        
+        @media (max-width: 992px) {
+            .featured-article {
+                grid-column: span 1;
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-article .article-image {
+                height: 250px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .filter-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo-section">
+                <div class="logo">
+                    <img src="assets/images/logo.png" alt="CLIENTCODE AI Logo" style="height: 80px; width: auto;">
+                </div>
+                <div>
+                    <div class="company-name">
+                        <span style="color: #1a1a1a; font-weight: bold;">CLIENTCODE</span><span style="color: #1a1a1a; font-weight: bold;"> AI INNOVATION</span>
+                    </div>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="news.html" class="active">News & Articles</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- News Hero Section -->
+        <section class="news-hero">
+            <div class="container">
+                <h1>AI News & Technology Articles</h1>
+                <p>Stay updated with the latest trends, breakthroughs, and insights in Artificial Intelligence, Machine Learning, and Generative AI technologies.</p>
+            </div>
+        </section>
+
+        <!-- News Filters -->
+        <section class="news-filters">
+            <div class="container">
+                <h2 style="text-align: center; color: var(--primary-blue); margin-bottom: 20px;">Browse by Category</h2>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-category="all">All Articles</button>
+                    <button class="filter-btn" data-category="genai">Generative AI</button>
+                    <button class="filter-btn" data-category="ml">Machine Learning</button>
+                    <button class="filter-btn" data-category="nlp">Natural Language Processing</button>
+                    <button class="filter-btn" data-category="ethics">AI Ethics</button>
+                    <button class="filter-btn" data-category="industry">Industry Applications</button>
+                    <button class="filter-btn" data-category="research">Research & Development</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Article -->
+        <section class="about-section" style="padding-top: 0;">
+            <div class="container">
+                <div class="news-grid">
+                    <!-- Featured Article -->
+                    <article class="news-article featured-article">
+                        <div class="article-image" style="background: linear-gradient(135deg, #2c3e50 0%, #4a6491 100%);">
+                            <span style="color: white; z-index: 1; font-size: 2em;">Featured: GPT-5 Impact</span>
+                        </div>
+                        <div class="article-content">
+                            <span class="article-category">Research & Development</span>
+                            <h2 class="article-title">The Future of Generative AI: What GPT-5 Means for Enterprises</h2>
+                            <p class="article-excerpt">Explore how the upcoming GPT-5 model will revolutionize business operations, from automated customer service to advanced data analysis and predictive modeling. Learn about the potential applications and challenges of next-generation AI systems.</p>
+                            <div class="article-meta">
+                                <span>December 15, 2025 • 8 min read</span>
+                                <a href="#" class="read-more">Read Full Article →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Regular Articles -->
+                    <article class="news-article" data-category="genai industry">
+                        <div class="article-image" style="background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);">
+                            <span style="color: white; z-index: 1;">AI in Healthcare</span>
+                        </div>
+                        <div class="article-content">
+                            <span class="article-category">Industry Applications</span>
+                            <h2 class="article-title">How Generative AI is Transforming Healthcare Diagnosis</h2>
+                            <p class="article-excerpt">Discover how AI-powered diagnostic tools are improving accuracy in medical imaging, patient monitoring, and treatment planning across healthcare institutions worldwide.</p>
+                            <div class="article-meta">
+                                <span>December 10, 2025 • 6 min read</span>
+                                <a href="#" class="read-more">Read More →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="news-article" data-category="ml research">
+                        <div class="article-image" style="background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);">
+                            <span style="color: white; z-index: 1;">Quantum ML</span>
+                        </div>
+                        <div class="article-content">
+                            <span class="article-category">Research & Development</span>
+                            <h2 class="article-title">Quantum Machine Learning: The Next Frontier</h2>
+                            <p class="article-excerpt">An in-depth look at how quantum computing is set to revolutionize machine learning algorithms, enabling breakthroughs in optimization problems and complex data analysis.</p>
+                            <div class="article-meta">
+                                <span>December 5, 2025 • 7 min read</span>
+                                <a href="#" class="read-more">Read More →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="news-article" data-category="nlp industry">
+                        <div class="article-image" style="background: linear-gradient(135deg, #d35400 0%, #e67e22 100%);">
+                            <span style="color: white; z-index: 1;">Multilingual AI</span>
+                        </div>
+                        <div class="article-content">
+                            <span class="article-category">Industry Applications</span>
+                            <h2 class="article-title">Breaking Language Barriers with Advanced NLP Models</h2>
+                            <p class="article-excerpt">Learn about the latest advancements in multilingual NLP systems that enable seamless communication across languages for global businesses.</p>
+                            <div class="article-meta">
+                                <span>November 28, 2025 • 5 min read</span>
+                                <a href="#" class="read-more">Read More →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="news-article" data-category="ethics">
+                        <div class="article-image" style="background: linear-gradient(135deg, #16a085 0%, #1abc9c 100%);">
+                            <span style="color: white; z-index: 1;">AI Ethics</span>
+                        </div>
+                        <div class="article-content">
+                            <span class="article-category">AI Ethics</span>
+                            <h2 class="article-title">The Ethical Implications of Autonomous AI Systems</h2>
+                            <p class="article-excerpt">Exploring the ethical considerations and regulatory frameworks needed for responsible deployment of autonomous AI systems in critical sectors.</p>
+                            <div class="article-meta">
+                                <span>November 22, 2025 • 8 min read</span>
+                                <a href="#" class="read-more">Read More →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="news-article" data-category="genai">
+                        <div class="article-image" style="background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);">
+                            <span style="color: white; z-index: 1;">RAG Systems</span>
+                        </div>
+                        <div class="article-content">
+                            <span class="article-category">Generative AI</span>
+                            <h2 class="article-title">RAG Systems: Enhancing AI Accuracy with External Knowledge</h2>
+                            <p class="article-excerpt">Understanding how Retrieval-Augmented Generation (RAG) systems combine LLMs with external databases to provide more accurate and up-to-date information.</p>
+                            <div class="article-meta">
+                                <span>November 18, 2025 • 6 min read</span>
+                                <a href="#" class="read-more">Read More →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="news-article" data-category="industry">
+                        <div class="article-image" style="background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);">
+                            <span style="color: white; z-index: 1;">Finance AI</span>
+                        </div>
+                        <div class="article-content">
+                            <span class="article-category">Industry Applications</span>
+                            <h2 class="article-title">AI-Powered Fraud Detection in Financial Services</h2>
+                            <p class="article-excerpt">How machine learning algorithms are revolutionizing fraud detection, reducing false positives, and saving billions for financial institutions.</p>
+                            <div class="article-meta">
+                                <span>November 12, 2025 • 5 min read</span>
+                                <a href="#" class="read-more">Read More →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="news-article" data-category="ml">
+                        <div class="article-image" style="background: linear-gradient(135deg, #7f8c8d 0%, #95a5a6 100%);">
+                            <span style="color: white; z-index: 1;">Edge AI</span>
+                        </div>
+                        <div class="article-content">
+                            <span class="article-category">Machine Learning</span>
+                            <h2 class="article-title">Edge Computing Meets Machine Learning: Real-Time AI Processing</h2>
+                            <p class="article-excerpt">The convergence of edge computing and ML enabling real-time AI processing for IoT devices, autonomous vehicles, and smart infrastructure.</p>
+                            <div class="article-meta">
+                                <span>November 8, 2025 • 7 min read</span>
+                                <a href="#" class="read-more">Read More →</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="page-btn prev-btn disabled">← Previous</button>
+                    <div class="page-numbers">
+                        <span class="page-number active">1</span>
+                        <span class="page-number">2</span>
+                        <span class="page-number">3</span>
+                        <span class="page-number">4</span>
+                        <span class="page-number">5</span>
+                    </div>
+                    <button class="page-btn next-btn">Next →</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+            <div class="container">
+                <h2 style="color: white; border-bottom: 4px solid var(--primary-yellow);">Stay Updated with AI Insights</h2>
+                <p style="color: rgba(255, 255, 255, 0.9); max-width: 600px; margin: 20px auto;">Subscribe to our newsletter for the latest AI news, research papers, industry trends, and expert analysis delivered to your inbox.</p>
+                
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                    <button type="submit" class="newsletter-btn">Subscribe Now</button>
+                </form>
+                <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.9em; margin-top: 15px;">No spam. Unsubscribe anytime.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                <div>
+                    <p style="margin: 0;">© 2025 CLIENTCODE AI Innovation Pvt. Ltd. All Rights Reserved.</p>
+                </div>
+                <div>
+                    <a href="privacy.html" style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem;">Privacy Policy</a>
+                    <a href="terms.html" style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem;">Terms of Service</a>
+                </div>
+            </div>
+            
+            <p style="margin-top: 0.5rem; font-size: 0.875rem; text-align: center;">
+                <a href="index.html" style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem;">Home</a> |
+                <a href="about.html" style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem;">About</a> |
+                <a href="services.html" style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem;">Services</a> |
+                <a href="projects.html" style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem;">Projects</a> |
+                <a href="news.html" style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem;">News & Articles</a> |
+                <a href="contact.html" style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem;">Contact</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // News filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const newsArticles = document.querySelectorAll('.news-article');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const category = this.getAttribute('data-category');
+                    
+                    // Show/hide articles based on category
+                    newsArticles.forEach(article => {
+                        if (category === 'all' || article.getAttribute('data-category').includes(category)) {
+                            article.style.display = 'block';
+                        } else {
+                            article.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Newsletter form submission
+            const newsletterForm = document.getElementById('newsletterForm');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = this.querySelector('.newsletter-input').value;
+                    
+                    // Simple validation
+                    if (email && email.includes('@')) {
+                        alert('Thank you for subscribing to our newsletter! You will receive the latest AI insights in your inbox.');
+                        this.reset();
+                    } else {
+                        alert('Please enter a valid email address.');
+                    }
+                });
+            }
+            
+            // Mobile navigation (same as other pages)
+            const navToggle = document.querySelector('.nav-toggle');
+            const mainNav = document.querySelector('.main-nav');
+            
+            if (navToggle && mainNav) {
+                navToggle.addEventListener('click', function() {
+                    mainNav.classList.toggle('active');
+                    this.classList.toggle('active');
+                });
+                
+                // Close mobile menu when clicking on a link
+                const navLinks = document.querySelectorAll('.main-nav a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mainNav.classList.remove('active');
+                        navToggle.classList.remove('active');
+                    });
+                });
+            }
+            
+            // Pagination functionality
+            const pageNumbers = document.querySelectorAll('.page-number');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            
+            pageNumbers.forEach(number => {
+                number.addEventListener('click', function() {
+                    // Remove active class from all numbers
+                    pageNumbers.forEach(n => n.classList.remove('active'));
+                    // Add active class to clicked number
+                    this.classList.add('active');
+                    
+                    // Enable/disable navigation buttons
+                    const currentPage = parseInt(this.textContent);
+                    if (currentPage === 1) {
+                        prevBtn.classList.add('disabled');
+                    } else {
+                        prevBtn.classList.remove('disabled');
+                    }
+                    
+                    if (currentPage === pageNumbers.length) {
+                        nextBtn.classList.add('disabled');
+                    } else {
+                        nextBtn.classList.remove('disabled');
+                    }
+                    
+                    // In a real implementation, this would load the corresponding page content
+                    console.log('Loading page:', currentPage);
+                });
+            });
+            
+            // Navigation button handlers
+            if (prevBtn && nextBtn) {
+                prevBtn.addEventListener('click', function() {
+                    if (!this.classList.contains('disabled')) {
+                        const activePage = document.querySelector('.page-number.active');
+                        const currentPage = parseInt(activePage.textContent);
+                        if (currentPage > 1) {
+                            pageNumbers[currentPage - 2].click();
+                        }
+                    }
+                });
+                
+                nextBtn.addEventListener('click', function() {
+                    if (!this.classList.contains('disabled')) {
+                        const activePage = document.querySelector('.page-number.active');
+                        const currentPage = parseInt(activePage.textContent);
+                        if (currentPage < pageNumbers.length) {
+                            pageNumbers[currentPage].click();
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
