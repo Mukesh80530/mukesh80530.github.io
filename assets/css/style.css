@@ -320,8 +320,7 @@ a:hover {
 
 /* About Section */
 .about-section {
-    padding: 80px 0;
-    text-align: center;
+    padding: 10px 0;
     background-color: var(--bg-white);
 }
 
@@ -714,4 +713,72 @@ a:hover {
     .contact-section {
         padding: 60px 0;
     }
+}
+
+/* Expertise Cards Styling */
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin-top: 3rem;
+}
+
+.expertise-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(253, 185, 19, 0.2);
+    border-radius: var(--border-radius-lg);
+    padding: 2.5rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.expertise-card:hover {
+    border-color: var(--primary-yellow);
+    box-shadow: 0 8px 32px rgba(253, 185, 19, 0.15);
+    transform: translateY(-5px);
+}
+
+.expertise-card h3 {
+    font-size: 1.4em;
+    margin-bottom: 1.5rem;
+    color: var(--primary-yellow);
+    border-bottom: 2px solid var(--primary-yellow);
+    padding-bottom: 1rem;
+    font-weight: 600;
+}
+
+.expertise-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+    text-align: left;
+}
+
+.expertise-list li {
+    margin-bottom: 1.2rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+    color: black;
+    font-size: 0.95em;
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    text-align: left;
+}
+
+.expertise-list li:before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--primary-yellow);
+    font-weight: bold;
+    display: inline;
+}
+
+.expertise-list li strong {
+    color: blue;
+    font-weight: 600;
+    display: inline;
 }
