@@ -48,7 +48,9 @@
             align-items: center;
             justify-content: center;
             margin: 0 auto var(--spacing-lg);
-            font-size: var(--font-size-xl);
+            font-size: 2rem;
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1;
         }
         
         .contact-method h3 {
@@ -154,6 +156,23 @@
             content: " *";
             color: var(--color-primary);
         }
+        
+        /* Checkbox styling */
+        .form-group label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .form-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            flex-shrink: 0;
+            margin: 0;
+        }
     </style>
 </head>
 <body>
@@ -192,8 +211,8 @@
         <section class="hero">
             <div class="container">
                 <h1>Get In Touch</h1>
-                <p class="subtitle">Ready to transform your business with AI? Let's start the conversation.</p>
-                <p class="tagline">Our team of AI experts is ready to help you implement intelligent solutions.</p>
+                <h4 class="subtitle">Ready to transform your business with AI? Let's start the conversation.</h4>
+                <h5 class="tagline">Our team of AI experts is ready to help you implement intelligent solutions.</h5>
             </div>
         </section>
 
@@ -242,7 +261,7 @@
                 <div class="contact-grid">
                     <!-- Contact Form -->
                     <div class="contact-form">
-                        <h2 id="consultation-form">Send Us a Message</h2>
+                        <h2 id="consultation-form" style="color: black;">Send Us a Message</h2>
                         <p>Fill out the form below and we'll get back to you within 24 hours.</p>
                         
                         <div id="formSuccess" class="form-success">
@@ -345,7 +364,7 @@
                             <p>
                                 A.D Nagar, Ballabgarh<br>
                                 Faridabad, Haryana 121004<br>
-                                India
+                                India.
                             </p>
                         </div>
                         
@@ -355,21 +374,13 @@
                                 First Floor 102, SRS CORPORATE TOWER<br>
                                 NH-19, Sector 31<br>
                                 Faridabad, Haryana 121003<br>
-                                India
+                                India.
                             </p>
                         </div>
                         
                         <!-- Map Container -->
                         <div class="map-container">
-                            <iframe 
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.6841850589886!2d77.3091!3d28.4089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cdc1234567891%3A0x1234567890abcdef!2sSRS%20CORPORATE%20TOWER%2C%20NH-19%2C%20Sector%2031%2C%20Faridabad%2C%20Haryana%20121003!5e0!3m2!1sen!2sin!4v1234567890123" 
-                                width="100%" 
-                                height="400" 
-                                style="border:0; border-radius: var(--border-radius-lg);" 
-                                allowfullscreen="" 
-                                loading="lazy" 
-                                referrerpolicy="no-referrer-when-downgrade">
-                            </iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3508.081091516005!2d77.30896750000001!3d28.446971800000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce745c186e61f%3A0x671628d9df0d8a1c!2sSRS%20Towers!5e0!3m2!1sen!2sin!4v1769703656709!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                         
                         <!-- Business Hours -->
@@ -378,7 +389,7 @@
                             <table class="hours-table">
                                 <tr>
                                     <td>Monday - Friday</td>
-                                    <td>9:00 AM - 6:00 PM</td>
+                                    <td>9:30 AM - 6:30 PM</td>
                                 </tr>
                                 <tr>
                                     <td>Saturday</td>
@@ -399,8 +410,6 @@
                         <div style="margin-top: 2rem;">
                             <h3>Quick Contacts</h3>
                             <p>📧 General: <a href="mailto:info@clientcodeai.in">info@clientcodeai.in</a></p>
-                            <p>📧 Sales: <a href="mailto:sales@clientcodeai.in">sales@clientcodeai.in</a></p>
-                            <p>📧 Support: <a href="mailto:support@clientcodeai.in">support@clientcodeai.in</a></p>
                             <p>📞 Phone: <a href="tel:+919958821387">+91-9958821387</a></p>
                             <p>🌐 Website: <a href="http://www.clientcodeai.in" target="_blank">www.clientcodeai.in</a></p>
                         </div>
@@ -458,7 +467,7 @@
         <section class="contact-section">
             <div class="container">
                 <h2 class="text-center">Let's Build Something Amazing Together</h2>
-                <p class="text-center">Whether you have a clear vision or just starting to explore AI possibilities, we're here to help.</p>
+                <h4 class="text-center">Whether you have a clear vision or just starting to explore AI possibilities, we're here to help.</h4>
                 
                 <div class="contact-methods" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 3rem;">
                     <div class="contact-method" style="box-shadow: none; background: transparent;">
@@ -489,22 +498,18 @@
     <!-- Footer Section -->
     <footer class="site-footer">
         <div class="container">
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
-                <div>
-                    <p style="margin: 0;">© 2025 CLIENTCODE AI Innovation Pvt. Ltd. All Rights Reserved.</p>
-                </div>
-                <div>
-                    <a href="privacy.html" style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem;">Privacy Policy</a>
-                    <a href="terms.html" style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem;">Terms of Service</a>
-                </div>
+            <div style="text-align: center;">
+                <h4 style="margin: 0 0 1rem 0;">© 2025 CLIENTCODE AI Innovation Pvt. Ltd. All Rights Reserved.</h4>
             </div>
             
-            <p style="margin-top: 0.5rem; font-size: 0.875rem; text-align: center;">
+            <p style="margin: 0.5rem 0; font-size: 0.875rem; text-align: center;">
                 <a href="index.html" style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem;">Home</a> |
                 <a href="about.html" style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem;">About</a> |
                 <a href="services.html" style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem;">Services</a> |
                 <a href="projects.html" style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem;">Projects</a> |
-                <a href="contact.html" style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem;">Contact</a>
+                <a href="contact.html" style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem;">Contact</a> |
+                <a href="privacy.html" style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem;">Privacy Policy</a> |
+                <a href="terms.html" style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem;">Terms & Conditions</a>
             </p>
         </div>
     </footer>
