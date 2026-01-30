@@ -1,707 +1,916 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Us - CLIENTCODE AI Innovation | Get AI Solutions</title>
-    <link rel="icon" type="image/png" href="assets/images/logo.png">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/images/logo.png" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        /* Additional styles for contact page */
-        .contact-hero {
-            padding: 4rem 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            text-align: center;
-        }
-        
-        .contact-methods {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--spacing-xl);
-            margin: var(--spacing-3xl) 0;
-        }
-        
-        .contact-method {
-            text-align: center;
-            padding: var(--spacing-xl);
-            background-color: var(--color-background);
-            border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow-md);
-            transition: transform var(--transition-normal);
-        }
-        
-        .contact-method:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .contact-icon {
-            width: 60px;
-            height: 60px;
-            background-color: var(--color-primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto var(--spacing-lg);
-            font-size: 2rem;
-            font-family: system-ui, -apple-system, sans-serif;
-            line-height: 1;
-        }
-        
-        .contact-method h3 {
-            margin-bottom: var(--spacing-md);
-            color: var(--color-text);
-        }
-        
-        .contact-method p {
-            margin-bottom: var(--spacing-md);
-            color: var(--color-text-light);
-        }
-        
-        .contact-method a {
-            color: var(--color-primary);
-            font-weight: 600;
-        }
-        
-        .map-container {
-            height: 300px;
-            background-color: var(--color-background-alt);
-            border-radius: var(--border-radius-lg);
-            margin: var(--spacing-2xl) 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-text-lighter);
-        }
-        
-        .business-hours {
-            background-color: var(--color-background-alt);
-            padding: var(--spacing-xl);
-            border-radius: var(--border-radius-lg);
-            margin-top: var(--spacing-xl);
-        }
-        
-        .hours-table {
-            width: 100%;
-            margin-top: var(--spacing-lg);
-        }
-        
-        .hours-table tr {
-            border-bottom: 1px solid var(--color-border-light);
-        }
-        
-        .hours-table td {
-            padding: var(--spacing-sm) 0;
-        }
-        
-        .hours-table td:first-child {
-            font-weight: 600;
-            color: var(--color-text);
-        }
-        
-        .hours-table td:last-child {
-            color: var(--color-text-light);
-            text-align: right;
-        }
-        
-        .form-success {
-            display: none;
-            background-color: #d4edda;
-            color: #155724;
-            padding: var(--spacing-lg);
-            border-radius: var(--border-radius);
-            margin: var(--spacing-lg) 0;
-            text-align: center;
-        }
-        
-        .form-error {
-            display: none;
-            background-color: #f8d7da;
-            color: #721c24;
-            padding: var(--spacing-lg);
-            border-radius: var(--border-radius);
-            margin: var(--spacing-lg) 0;
-            text-align: center;
-        }
-        
-        .form-group.success input,
-        .form-group.success textarea,
-        .form-group.success select {
-            border-color: #28a745;
-        }
-        
-        .form-group.error input,
-        .form-group.error textarea,
-        .form-group.error select {
-            border-color: #dc3545;
-        }
-        
-        .error-message {
-            color: #dc3545;
-            font-size: var(--font-size-sm);
-            margin-top: var(--spacing-xs);
-            display: none;
-        }
-        
-        .form-group.error .error-message {
-            display: block;
-        }
-        
-        .required::after {
-            content: " *";
-            color: var(--color-primary);
-        }
-        
-        /* Checkbox styling */
-        .form-group label {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            cursor: pointer;
-            font-weight: 500;
-        }
-        
-        .form-group input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            cursor: pointer;
-            flex-shrink: 0;
-            margin: 0;
-        }
-    </style>
-</head>
-<body>
+      /* Additional styles for contact page */
+      .contact-hero {
+        padding: 4rem 0;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        text-align: center;
+      }
 
+      .contact-methods {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--spacing-xl);
+        margin: var(--spacing-3xl) 0;
+      }
+
+      .contact-method {
+        text-align: center;
+        padding: var(--spacing-xl);
+        background-color: var(--color-background);
+        border-radius: var(--border-radius-lg);
+        box-shadow: var(--shadow-md);
+        transition: transform var(--transition-normal);
+      }
+
+      .contact-method:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .contact-icon {
+        width: 60px;
+        height: 60px;
+        background-color: var(--color-primary);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto var(--spacing-lg);
+        font-size: 2rem;
+        font-family:
+          system-ui,
+          -apple-system,
+          sans-serif;
+        line-height: 1;
+      }
+
+      .contact-method h3 {
+        margin-bottom: var(--spacing-md);
+        color: var(--color-text);
+      }
+
+      .contact-method p {
+        margin-bottom: var(--spacing-md);
+        color: var(--color-text-light);
+      }
+
+      .contact-method a {
+        color: var(--color-primary);
+        font-weight: 600;
+      }
+
+      .map-container {
+        height: 300px;
+        background-color: var(--color-background-alt);
+        border-radius: var(--border-radius-lg);
+        margin: var(--spacing-2xl) 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-text-lighter);
+      }
+
+      .business-hours {
+        background-color: var(--color-background-alt);
+        border-radius: var(--border-radius-lg);
+        margin-top: var(--spacing-2xl);
+        border: 1px solid var(--color-border-light);
+      }
+
+      .business-hours h3 {
+        color: var(--color-primary);
+        margin-bottom: var(--spacing-lg);
+        font-size: var(--font-size-lg);
+      }
+
+      .hours-table {
+        width: 100%;
+        margin-top: var(--spacing-lg);
+      }
+
+      .hours-table tr {
+        border-bottom: 1px solid var(--color-border-light);
+      }
+
+      .hours-table td {
+        padding: var(--spacing-sm) 0;
+      }
+
+      .hours-table td:first-child {
+        font-weight: 600;
+        color: var(--color-text);
+      }
+
+      .hours-table td:last-child {
+        color: var(--color-text-light);
+        text-align: right;
+      }
+
+      .form-success {
+        display: none;
+        background-color: #d4edda;
+        color: #155724;
+        padding: var(--spacing-lg);
+        border-radius: var(--border-radius);
+        margin: var(--spacing-lg) 0;
+        text-align: center;
+      }
+
+      .form-error {
+        display: none;
+        background-color: #f8d7da;
+        color: #721c24;
+        padding: var(--spacing-lg);
+        border-radius: var(--border-radius);
+        margin: var(--spacing-lg) 0;
+        text-align: center;
+      }
+
+      .form-group.success input,
+      .form-group.success textarea,
+      .form-group.success select {
+        border-color: #28a745;
+      }
+
+      .form-group.error input,
+      .form-group.error textarea,
+      .form-group.error select {
+        border-color: #dc3545;
+      }
+
+      .error-message {
+        color: #dc3545;
+        font-size: var(--font-size-sm);
+        margin-top: var(--spacing-xs);
+        display: none;
+      }
+
+      .form-group.error .error-message {
+        display: block;
+      }
+
+      .required::after {
+        content: " *";
+        color: var(--color-primary);
+      }
+
+      /* Checkbox styling */
+      .form-group label {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+        font-weight: 500;
+      }
+
+      .form-group input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        flex-shrink: 0;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
     <!-- Header Section -->
     <header class="site-header">
-        <div class="container header-container">
-            <div class="logo-section">
-                <div class="logo">
-                    <img src="assets/images/logo.png" alt="CLIENTCODE AI Logo" style="height: 80px; width: auto;">
-                </div>
-                <div>
-                    <div class="company-name">
-                        <span style="color: #1a1a1a; font-weight: bold;">CLIENTCODE</span><span style="color: #1a1a1a; font-weight: bold;"> AI INNOVATION</span>
-                    </div>
-                </div>
+      <div class="container header-container">
+        <div class="logo-section">
+          <div class="logo">
+            <img
+              src="assets/images/logo.png"
+              alt="CLIENTCODE AI Logo"
+              style="height: 80px; width: auto"
+            />
+          </div>
+          <div>
+            <div class="company-name">
+              <span style="color: #1a1a1a; font-weight: bold">CLIENTCODE</span
+              ><span style="color: #1a1a1a; font-weight: bold">
+                AI INNOVATION</span
+              >
             </div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="news.html">News & Articles</a></li>
-                    <li><a href="contact.html" class="active">Contact</a></li>
-                </ul>
-            </nav>
-            <button class="nav-toggle" aria-label="toggle navigation">
-                <span class="hamburger"></span>
-            </button>
+          </div>
         </div>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="news.html">News & Articles</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+          </ul>
+        </nav>
+        <button class="nav-toggle" aria-label="toggle navigation">
+          <span class="hamburger"></span>
+        </button>
+      </div>
     </header>
 
     <main>
-        <!-- Contact Hero -->
-        <section class="hero">
-            <div class="container">
-                <h1>Get In Touch</h1>
-                <h4 class="subtitle">Ready to transform your business with AI? Let's start the conversation.</h4>
-                <h5 class="tagline">Our team of AI experts is ready to help you implement intelligent solutions.</h5>
-            </div>
-        </section>
+      <!-- Contact Hero -->
+      <section class="hero">
+        <div class="container">
+          <h1>Get In Touch</h1>
+          <h4 class="subtitle">
+            Ready to transform your business with AI? Let's start the
+            conversation.
+          </h4>
+          <h5 class="tagline">
+            Our team of AI experts is ready to help you implement intelligent
+            solutions.
+          </h5>
+        </div>
+      </section>
 
-        <!-- Contact Methods -->
-        <section class="about-section">
-            <div class="container">
-                <div class="contact-methods">
-                    <div class="contact-method">
-                        <div class="contact-icon">📧</div>
-                        <h3>Email Us</h3>
-                        <p>For general inquiries and project discussions</p>
-                        <a href="mailto:info@clientcodeai.in">info@clientcodeai.in</a>
-                        <p style="margin-top: 1rem; font-size: 0.875rem;">Response within 24 hours</p>
-                    </div>
-                    
-                    <div class="contact-method">
-                        <div class="contact-icon">📞</div>
-                        <h3>Call Us</h3>
-                        <p>Speak directly with our solutions team</p>
-                        <a href="tel:+919958821387">+91-9958821387</a>
-                        <p style="margin-top: 1rem; font-size: 0.875rem;">Mon-Fri, 9 AM - 6 PM IST</p>
-                    </div>
-                    
-                    <div class="contact-method">
-                        <div class="contact-icon">💬</div>
-                        <h3>Live Chat</h3>
-                        <p>Get instant answers to your questions</p>
-                        <button class="btn btn-outline" onclick="startLiveChat()" style="margin-top: 0.5rem;">Start Chat</button>
-                        <p style="margin-top: 1rem; font-size: 0.875rem;">Available during business hours</p>
-                    </div>
-                    
-                    <div class="contact-method">
-                        <div class="contact-icon">📅</div>
-                        <h3>Schedule a Call</h3>
-                        <p>Book a consultation with our AI experts</p>
-                        <a href="#consultation-form" class="btn btn-outline" style="margin-top: 0.5rem;">Book Now</a>
-                        <p style="margin-top: 1rem; font-size: 0.875rem;">30-minute free consultation</p>
-                    </div>
+      <!-- Contact Methods -->
+      <section class="about-section">
+        <div class="container">
+          <div class="contact-methods">
+            <div class="contact-method">
+              <div class="contact-icon">📧</div>
+              <h3>Email Us</h3>
+              <p>For general inquiries and project discussions</p>
+              <a href="mailto:info@clientcodeai.in">info@clientcodeai.in</a>
+              <p style="margin-top: 1rem; font-size: 0.875rem">
+                Response within 24 hours
+              </p>
+            </div>
+
+            <div class="contact-method">
+              <div class="contact-icon">📞</div>
+              <h3>Call Us</h3>
+              <p>Speak directly with our solutions team</p>
+              <a href="tel:+919958821387">+91-9958821387</a>
+              <p style="margin-top: 1rem; font-size: 0.875rem">
+                Mon-Fri, 10 AM - 7 PM IST
+              </p>
+            </div>
+
+            <div class="contact-method">
+              <div class="contact-icon">📱</div>
+              <h3>WhatsApp Chat</h3>
+              <p>Get instant answers to your questions</p>
+              <!-- <a href="https://wa.me/919958821387" target="_blank" class="btn btn-outline" style="margin-top: 0.5rem; display: inline-block; text-decoration: none;">Start Chat</a> -->
+              <a href="tel:+919958821387">+91-9958821387</a>
+              <p style="margin-top: 1rem; font-size: 0.875rem">
+                Mon-Fri, 10 AM - 7 PM IST
+              </p>
+              <!-- <p style="margin-top: 1rem; font-size: 0.875rem;">Available 24/7</p> -->
+            </div>
+
+            <div class="contact-method">
+              <div class="contact-icon">📅</div>
+              <h3>Schedule a Call</h3>
+              <p>Book a consultation with our AI experts</p>
+              <a
+                href="#consultation-form"
+                class="btn btn-outline"
+                style="margin-top: 0.5rem; background-color: #4b8f83"
+                >Book Now</a
+              >
+              <!-- <p style="margin-top: 1rem; font-size: 0.875rem;">30-minute free consultation</p> -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Form & Details -->
+      <section class="contact-section bg-alt">
+        <div class="container">
+          <div class="contact-grid">
+            <!-- Contact Form -->
+            <div class="contact-form">
+              <h2 id="consultation-form" style="color: black">
+                Send Us a Message
+              </h2>
+              <p>
+                Fill out the form below and we'll get back to you within 24
+                hours.
+              </p>
+
+              <div id="formSuccess" class="form-success">
+                <h3>Thank You!</h3>
+                <p>
+                  Your message has been sent successfully. We'll contact you
+                  within 24 hours.
+                </p>
+              </div>
+
+              <div id="formError" class="form-error">
+                <h3>Oops! Something went wrong.</h3>
+                <p>
+                  Please try again or contact us directly via email or phone.
+                </p>
+              </div>
+
+              <form id="contactForm" novalidate>
+                <div class="form-group">
+                  <label for="fullName" class="required">Full Name</label>
+                  <input type="text" id="fullName" name="fullName" required />
+                  <div class="error-message">Please enter your full name</div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Contact Form & Details -->
-        <section class="contact-section bg-alt">
-            <div class="container">
-                <div class="contact-grid">
-                    <!-- Contact Form -->
-                    <div class="contact-form">
-                        <h2 id="consultation-form" style="color: black;">Send Us a Message</h2>
-                        <p>Fill out the form below and we'll get back to you within 24 hours.</p>
-                        
-                        <div id="formSuccess" class="form-success">
-                            <h3>Thank You!</h3>
-                            <p>Your message has been sent successfully. We'll contact you within 24 hours.</p>
-                        </div>
-                        
-                        <div id="formError" class="form-error">
-                            <h3>Oops! Something went wrong.</h3>
-                            <p>Please try again or contact us directly via email or phone.</p>
-                        </div>
-                        
-                        <form id="contactForm" novalidate>
-                            <div class="form-group">
-                                <label for="fullName" class="required">Full Name</label>
-                                <input type="text" id="fullName" name="fullName" required>
-                                <div class="error-message">Please enter your full name</div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="email" class="required">Email Address</label>
-                                <input type="email" id="email" name="email" required>
-                                <div class="error-message">Please enter a valid email address</div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone">
-                                <div class="error-message">Please enter a valid phone number</div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="company">Company Name</label>
-                                <input type="text" id="company" name="company">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="service" class="required">Service Interest</label>
-                                <select id="service" name="service" required>
-                                    <option value="">Select a service</option>
-                                    <option value="genai">Generative AI Solutions</option>
-                                    <option value="ml">Machine Learning</option>
-                                    <option value="nlp">Natural Language Processing</option>
-                                    <option value="vision">Computer Vision</option>
-                                    <option value="integration">AI System Integration</option>
-                                    <option value="consulting">AI Strategy Consulting</option>
-                                    <option value="custom">Custom AI Development</option>
-                                    <option value="notsure">Not Sure / Need Advice</option>
-                                </select>
-                                <div class="error-message">Please select a service interest</div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="budget">Project Budget</label>
-                                <select id="budget" name="budget">
-                                    <option value="">Select budget range</option>
-                                    <option value="under-25k">Under $25,000</option>
-                                    <option value="25k-50k">$25,000 - $50,000</option>
-                                    <option value="50k-100k">$50,000 - $100,000</option>
-                                    <option value="100k-250k">$100,000 - $250,000</option>
-                                    <option value="250k-plus">$250,000+</option>
-                                    <option value="tbd">To be determined</option>
-                                </select>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="message" class="required">Your Message</label>
-                                <textarea id="message" name="message" rows="5" placeholder="Tell us about your project, challenges, or questions..." required></textarea>
-                                <div class="error-message">Please enter your message</div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label>
-                                    <input type="checkbox" id="newsletter" name="newsletter" checked>
-                                    Subscribe to our AI insights newsletter
-                                </label>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label>
-                                    <input type="checkbox" id="privacy" name="privacy" required>
-                                    <span class="required">I agree to the Privacy Policy and terms of service</span>
-                                </label>
-                                <div class="error-message">You must agree to the privacy policy</div>
-                            </div>
-                            
-                            <button type="submit" class="btn btn-block" id="submitBtn">
-                                <span id="submitText">Send Message</span>
-                                <span id="submitLoading" style="display: none;">Sending...</span>
-                            </button>
-                        </form>
-                    </div>
-                    
-                    <!-- Contact Details -->
-                    <div class="contact-details">
-                        <h2>Contact Information</h2>
-                        
-                        <div class="contact-address" style="box-shadow: none; padding: 0; margin-bottom: 2rem;">
+                <div class="form-group">
+                  <label for="email" class="required">Email Address</label>
+                  <input type="email" id="email" name="email" required />
+                  <div class="error-message">
+                    Please enter a valid email address
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" id="phone" name="phone" />
+                  <div class="error-message">
+                    Please enter a valid phone number
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="company">Company Name</label>
+                  <input type="text" id="company" name="company" />
+                </div>
+
+                <div class="form-group">
+                  <label for="service" class="required">Service Interest</label>
+                  <select id="service" name="service" required>
+                    <option value="">Select a service</option>
+                    <option value="genai">Generative AI Solutions</option>
+                    <option value="ml">Machine Learning</option>
+                    <option value="nlp">Natural Language Processing</option>
+                    <option value="vision">Computer Vision</option>
+                    <option value="integration">AI System Integration</option>
+                    <option value="consulting">AI Strategy Consulting</option>
+                    <option value="custom">Custom AI Development</option>
+                    <option value="notsure">Not Sure / Need Advice</option>
+                  </select>
+                  <div class="error-message">
+                    Please select a service interest
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="budget">Project Budget</label>
+                  <select id="budget" name="budget">
+                    <option value="">Select budget range</option>
+                    <option value="under-25k">Under $25,000</option>
+                    <option value="25k-50k">$25,000 - $50,000</option>
+                    <option value="50k-100k">$50,000 - $100,000</option>
+                    <option value="100k-250k">$100,000 - $250,000</option>
+                    <option value="250k-plus">$250,000+</option>
+                    <option value="tbd">To be determined</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="message" class="required">Your Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    placeholder="Tell us about your project, challenges, or questions..."
+                    required
+                  ></textarea>
+                  <div class="error-message">Please enter your message</div>
+                </div>
+
+                <div class="form-group">
+                  <label>
+                    <input
+                      type="checkbox"
+                      id="newsletter"
+                      name="newsletter"
+                      checked
+                    />
+                    Subscribe to our AI insights newsletter
+                  </label>
+                </div>
+
+                <div class="form-group">
+                  <label>
+                    <input
+                      type="checkbox"
+                      id="privacy"
+                      name="privacy"
+                      required
+                    />
+                    <span class="required"
+                      >I agree to the Privacy Policy and terms of service</span
+                    >
+                  </label>
+                  <div class="error-message">
+                    You must agree to the privacy policy
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-block" id="submitBtn">
+                  <span id="submitText">Send Message</span>
+                  <span id="submitLoading" style="display: none"
+                    >Sending...</span
+                  >
+                </button>
+              </form>
+            </div>
+
+            <!-- Contact Details -->
+            <div class="contact-details">
+              <h2>Contact Information</h2>
+              <!-- <div class="contact-address" style="box-shadow: none; padding: 0; margin-bottom: 2rem;">
                             <h3>Registered Office</h3>
                             <p>
                                 A.D Nagar, Ballabgarh<br>
                                 Faridabad, Haryana 121004<br>
                                 India.
                             </p>
-                        </div>
-                        
-                        <div class="contact-address" style="box-shadow: none; padding: 0; margin-bottom: 2rem;">
-                            <h3>Corporate Office</h3>
-                            <p>
-                                First Floor 102, SRS CORPORATE TOWER<br>
-                                NH-19, Sector 31<br>
-                                Faridabad, Haryana 121003<br>
-                                India.
-                            </p>
-                        </div>
-                        
-                        <!-- Map Container -->
-                        <div class="map-container">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3508.081091516005!2d77.30896750000001!3d28.446971800000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce745c186e61f%3A0x671628d9df0d8a1c!2sSRS%20Towers!5e0!3m2!1sen!2sin!4v1769703656709!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
-                        
-                        <!-- Business Hours -->
-                        <div class="business-hours">
-                            <h3>Business Hours</h3>
-                            <table class="hours-table">
-                                <tr>
-                                    <td>Monday - Friday</td>
-                                    <td>9:30 AM - 6:30 PM</td>
-                                </tr>
-                                <tr>
-                                    <td>Saturday</td>
-                                    <td>10:00 AM - 2:00 PM</td>
-                                </tr>
-                                <tr>
-                                    <td>Sunday</td>
-                                    <td>Closed</td>
-                                </tr>
-                                <tr>
-                                    <td>Emergency Support</td>
-                                    <td>24/7 Available</td>
-                                </tr>
-                            </table>
-                        </div>
-                        
-                        <!-- Quick Contacts -->
-                        <div style="margin-top: 2rem;">
-                            <h3>Quick Contacts</h3>
-                            <p>📧 General: <a href="mailto:info@clientcodeai.in">info@clientcodeai.in</a></p>
-                            <p>📞 Phone: <a href="tel:+919958821387">+91-9958821387</a></p>
-                            <p>🌐 Website: <a href="http://www.clientcodeai.in" target="_blank">www.clientcodeai.in</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                        </div> -->
 
-        <!-- FAQ Section -->
-        <section class="about-section">
-            <div class="container">
-                <h2 class="text-center">Frequently Asked Questions</h2>
-                
-                <div class="tech-categories" style="grid-template-columns: 1fr;">
-                    <div class="tech-category">
-                        <h3>General Questions</h3>
-                        <div style="margin-top: 1.5rem;">
-                            <h4 style="color: var(--color-text); margin-bottom: 0.5rem;">What is your typical response time?</h4>
-                            <p>We respond to all inquiries within 24 hours during business days. For urgent matters, please call us directly.</p>
-                        </div>
-                        
-                        <div style="margin-top: 1.5rem;">
-                            <h4 style="color: var(--color-text); margin-bottom: 0.5rem;">Do you offer free consultations?</h4>
-                            <p>Yes, we offer a free 30-minute consultation to discuss your project requirements and explore potential AI solutions.</p>
-                        </div>
-                        
-                        <div style="margin-top: 1.5rem;">
-                            <h4 style="color: var(--color-text); margin-bottom: 0.5rem;">What industries do you serve?</h4>
-                            <p>We serve diverse industries including finance, healthcare, retail, manufacturing, logistics, education, and more.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="tech-category">
-                        <h3>Project & Process Questions</h3>
-                        <div style="margin-top: 1.5rem;">
-                            <h4 style="color: var(--color-text); margin-bottom: 0.5rem;">What is your typical project timeline?</h4>
-                            <p>Project timelines vary based on complexity. Simple projects can take 4-8 weeks, while comprehensive AI solutions may take 3-6 months.</p>
-                        </div>
-                        
-                        <div style="margin-top: 1.5rem;">
-                            <h4 style="color: var(--color-text); margin-bottom: 0.5rem;">Do you work with international clients?</h4>
-                            <p>Yes, we work with clients globally. We accommodate different time zones and can conduct meetings via video conference.</p>
-                        </div>
-                        
-                        <div style="margin-top: 1.5rem;">
-                            <h4 style="color: var(--color-text); margin-bottom: 0.5rem;">What is your development process?</h4>
-                            <p>We follow an agile development process with regular checkpoints, demos, and opportunities for feedback throughout the project.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+              <div
+                class="contact-address"
+                style="box-shadow: none; padding: 0; margin-bottom: 5rem"
+              >
+                <h3>Corporate Office</h3>
+                <p>
+                  First Floor 102, SRS CORPORATE TOWER<br />
+                  NH-19, Sector 31<br />
+                  Faridabad, Haryana 121003<br />
+                  India.
+                </p>
+              </div>
 
-        <!-- CTA Section -->
-        <section class="contact-section">
-            <div class="container">
-                <h2 class="text-center">Let's Build Something Amazing Together</h2>
-                <h4 class="text-center">Whether you have a clear vision or just starting to explore AI possibilities, we're here to help.</h4>
-                
-                <div class="contact-methods" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 3rem;">
-                    <div class="contact-method" style="box-shadow: none; background: transparent;">
-                        <div class="contact-icon" style="background-color: var(--color-background-alt); color: var(--color-primary);">🚀</div>
-                        <h3>Start a Project</h3>
-                        <p>Have a specific AI project in mind?</p>
-                        <a href="#consultation-form" class="btn">Get Quote</a>
-                    </div>
-                    
-                    <div class="contact-method" style="box-shadow: none; background: transparent;">
-                        <div class="contact-icon" style="background-color: var(--color-background-alt); color: var(--color-primary);">💡</div>
-                        <h3>Need Advice?</h3>
-                        <p>Not sure where to start with AI?</p>
-                        <a href="#consultation-form" class="btn btn-outline">Book Consultation</a>
-                    </div>
-                    
-                    <div class="contact-method" style="box-shadow: none; background: transparent;">
-                        <div class="contact-icon" style="background-color: var(--color-background-alt); color: var(--color-primary);">📄</div>
-                        <h3>View Our Work</h3>
-                        <p>See our successful AI implementations</p>
-                        <a href="projects.html" class="btn btn-outline">View Projects</a>
-                    </div>
-                </div>
+              <!-- Map Container -->
+              <div class="map-container">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3508.081091516005!2d77.30896750000001!3d28.446971800000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce745c186e61f%3A0x671628d9df0d8a1c!2sSRS%20Towers!5e0!3m2!1sen!2sin!4v1769703656709!5m2!1sen!2sin"
+                  width="600"
+                  height="450"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+
+              <!-- Business Hours -->
+              <div class="business-hours" style="padding-top: 3rem !important">
+                <h3>Business Hours</h3>
+                <table class="hours-table">
+                  <tr>
+                    <td>Monday - Friday</td>
+                    <td>9:30 AM - 6:30 PM</td>
+                  </tr>
+                  <tr>
+                    <td>Saturday</td>
+                    <td>10:00 AM - 2:00 PM</td>
+                  </tr>
+                  <tr>
+                    <td>Sunday</td>
+                    <td>Closed</td>
+                  </tr>
+                  <tr>
+                    <td>Emergency Support</td>
+                    <td>24/7 Available</td>
+                  </tr>
+                </table>
+              </div>
+
+              <!-- Quick Contacts -->
+              <div style="margin-top: 2rem">
+                <h3>Quick Contacts</h3>
+                <p>
+                  📧 General:
+                  <a href="mailto:info@clientcodeai.in">info@clientcodeai.in</a>
+                </p>
+                <p>📞 Phone: <a href="tel:+919958821387">+91-9958821387</a></p>
+                <p>
+                  🌐 Website:
+                  <a href="http://www.clientcodeai.in" target="_blank"
+                    >www.clientcodeai.in</a
+                  >
+                </p>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="about-section">
+        <div class="container">
+          <h2 class="text-center">Frequently Asked Questions</h2>
+
+          <div class="tech-categories" style="grid-template-columns: 1fr">
+            <div class="tech-category">
+              <h3>General Questions</h3>
+              <div style="margin-top: 1.5rem">
+                <h4 style="color: var(--color-text); margin-bottom: 0.5rem">
+                  What is your typical response time?
+                </h4>
+                <p>
+                  We respond to all inquiries within 24 hours during business
+                  days. For urgent matters, please call us directly.
+                </p>
+              </div>
+
+              <div style="margin-top: 1.5rem">
+                <h4 style="color: var(--color-text); margin-bottom: 0.5rem">
+                  Do you offer free consultations?
+                </h4>
+                <p>
+                  Yes, we offer a free 30-minute consultation to discuss your
+                  project requirements and explore potential AI solutions.
+                </p>
+              </div>
+
+              <div style="margin-top: 1.5rem">
+                <h4 style="color: var(--color-text); margin-bottom: 0.5rem">
+                  What industries do you serve?
+                </h4>
+                <p>
+                  We serve diverse industries including finance, healthcare,
+                  retail, manufacturing, logistics, education, and more.
+                </p>
+              </div>
+            </div>
+
+            <div class="tech-category">
+              <h3>Project & Process Questions</h3>
+              <div style="margin-top: 1.5rem">
+                <h4 style="color: var(--color-text); margin-bottom: 0.5rem">
+                  What is your typical project timeline?
+                </h4>
+                <p>
+                  Project timelines vary based on complexity. Simple projects
+                  can take 4-8 weeks, while comprehensive AI solutions may take
+                  3-6 months.
+                </p>
+              </div>
+
+              <div style="margin-top: 1.5rem">
+                <h4 style="color: var(--color-text); margin-bottom: 0.5rem">
+                  Do you work with international clients?
+                </h4>
+                <p>
+                  Yes, we work with clients globally. We accommodate different
+                  time zones and can conduct meetings via video conference.
+                </p>
+              </div>
+
+              <div style="margin-top: 1.5rem">
+                <h4 style="color: var(--color-text); margin-bottom: 0.5rem">
+                  What is your development process?
+                </h4>
+                <p>
+                  We follow an agile development process with regular
+                  checkpoints, demos, and opportunities for feedback throughout
+                  the project.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="contact-section">
+        <div class="container">
+          <h2 class="text-center">Let's Build Something Amazing Together</h2>
+          <h4 class="text-center">
+            Whether you have a clear vision or just starting to explore AI
+            possibilities, we're here to help.
+          </h4>
+
+          <div
+            class="contact-methods"
+            style="
+              grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+              margin-top: 3rem;
+            "
+          >
+            <div
+              class="contact-method"
+              style="box-shadow: none; background: transparent"
+            >
+              <div
+                class="contact-icon"
+                style="
+                  background-color: var(--color-background-alt);
+                  color: var(--color-primary);
+                "
+              >
+                🚀
+              </div>
+              <h3>Start a Project</h3>
+              <p>Have a specific AI project in mind?</p>
+              <a href="#consultation-form" class="btn">Get Quote</a>
+            </div>
+
+            <div
+              class="contact-method"
+              style="box-shadow: none; background: transparent"
+            >
+              <div
+                class="contact-icon"
+                style="
+                  background-color: var(--color-background-alt);
+                  color: var(--color-primary);
+                "
+              >
+                💡
+              </div>
+              <h3>Need Advice?</h3>
+              <p>Not sure where to start with AI?</p>
+              <a href="#consultation-form" class="btn btn-outline"
+                >Book Consultation</a
+              >
+            </div>
+
+            <div
+              class="contact-method"
+              style="box-shadow: none; background: transparent"
+            >
+              <div
+                class="contact-icon"
+                style="
+                  background-color: var(--color-background-alt);
+                  color: var(--color-primary);
+                "
+              >
+                📄
+              </div>
+              <h3>View Our Work</h3>
+              <p>See our successful AI implementations</p>
+              <a href="projects.html" class="btn btn-outline">View Projects</a>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Footer Section -->
     <footer class="site-footer">
-        <div class="container">
-            <div style="text-align: center;">
-                <h4 style="margin: 0 0 1rem 0;">© 2025 CLIENTCODE AI Innovation Pvt. Ltd. All Rights Reserved.</h4>
-            </div>
-            
-            <p style="margin: 0.5rem 0; font-size: 0.875rem; text-align: center;">
-                <a href="index.html" style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem;">Home</a> |
-                <a href="about.html" style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem;">About</a> |
-                <a href="services.html" style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem;">Services</a> |
-                <a href="projects.html" style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem;">Projects</a> |
-                <a href="contact.html" style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem;">Contact</a> |
-                <a href="privacy.html" style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem;">Privacy Policy</a> |
-                <a href="terms.html" style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem;">Terms & Conditions</a>
-            </p>
+      <div class="container">
+        <div style="text-align: center">
+          <h4 style="margin: 0 0 1rem 0">
+            © 2025 CLIENTCODE AI Innovation Pvt. Ltd. All Rights Reserved.
+          </h4>
         </div>
+
+        <p style="margin: 0.5rem 0; font-size: 0.875rem; text-align: center">
+          <a
+            href="index.html"
+            style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem"
+            >Home</a
+          >
+          |
+          <a
+            href="about.html"
+            style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem"
+            >About</a
+          >
+          |
+          <a
+            href="services.html"
+            style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem"
+            >Services</a
+          >
+          |
+          <a
+            href="projects.html"
+            style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem"
+            >Projects</a
+          >
+          |
+          <a
+            href="contact.html"
+            style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem"
+            >Contact</a
+          >
+          |
+          <a
+            href="privacy.html"
+            style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem"
+            >Privacy Policy</a
+          >
+          |
+          <a
+            href="terms.html"
+            style="color: rgba(255, 255, 255, 0.7); margin: 0 0.5rem"
+            >Terms & Conditions</a
+          >
+        </p>
+      </div>
     </footer>
 
     <script src="assets/js/script.js"></script>
     <script>
-        // Form validation and submission
-        document.getElementById('contactForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            // Reset form states
-            resetFormValidation();
-            
-            // Validate form
-            if (!validateForm()) {
-                return;
-            }
-            
-            // Show loading state
-            const submitBtn = document.getElementById('submitBtn');
-            const submitText = document.getElementById('submitText');
-            const submitLoading = document.getElementById('submitLoading');
-            
-            submitText.style.display = 'none';
-            submitLoading.style.display = 'inline';
-            submitBtn.disabled = true;
-            
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // In a real implementation, you would send this to a server
-            // For demo purposes, we'll simulate an API call
-            try {
-                // Simulate API delay
-                await new Promise(resolve => setTimeout(resolve, 1500));
-                
-                // Simulate successful submission
-                console.log('Form submitted:', data);
-                
-                // Show success message
-                document.getElementById('formSuccess').style.display = 'block';
-                document.getElementById('formError').style.display = 'none';
-                
-                // Reset form
-                this.reset();
-                
-            } catch (error) {
-                // Show error message
-                document.getElementById('formSuccess').style.display = 'none';
-                document.getElementById('formError').style.display = 'block';
-                console.error('Form submission error:', error);
-            } finally {
-                // Reset button state
-                submitText.style.display = 'inline';
-                submitLoading.style.display = 'none';
-                submitBtn.disabled = false;
-                
-                // Scroll to success message
-                document.getElementById('formSuccess').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }
-        });
-        
-        // Form validation functions
-        function validateForm() {
-            let isValid = true;
-            
-            // Validate required fields
-            const requiredFields = document.querySelectorAll('#contactForm [required]');
-            requiredFields.forEach(field => {
-                const formGroup = field.closest('.form-group');
-                
-                if (!field.value.trim()) {
-                    formGroup.classList.add('error');
-                    isValid = false;
-                } else {
-                    formGroup.classList.remove('error');
-                    formGroup.classList.add('success');
-                }
+      // Form validation and submission
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          // Reset form states
+          resetFormValidation();
+
+          // Validate form
+          if (!validateForm()) {
+            return;
+          }
+
+          // Show loading state
+          const submitBtn = document.getElementById("submitBtn");
+          const submitText = document.getElementById("submitText");
+          const submitLoading = document.getElementById("submitLoading");
+
+          submitText.style.display = "none";
+          submitLoading.style.display = "inline";
+          submitBtn.disabled = true;
+
+          // Get form data
+          const formData = new FormData(this);
+          const data = Object.fromEntries(formData);
+
+          // Simulate form submission (in production, send to your backend/email service)
+          setTimeout(() => {
+            // Show success message
+            document.getElementById("formSuccess").style.display = "block";
+            document.getElementById("formError").style.display = "none";
+
+            // Reset form
+            document.getElementById("contactForm").reset();
+
+            // Reset button state
+            submitText.style.display = "inline";
+            submitLoading.style.display = "none";
+            submitBtn.disabled = false;
+
+            // Scroll to success message
+            document.getElementById("formSuccess").scrollIntoView({
+              behavior: "smooth",
+              block: "start",
             });
-            
-            // Validate email format
-            const emailField = document.getElementById('email');
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (emailField.value && !emailRegex.test(emailField.value)) {
-                emailField.closest('.form-group').classList.add('error');
-                emailField.nextElementSibling.textContent = 'Please enter a valid email address';
-                isValid = false;
-            }
-            
-            // Validate phone format (if provided)
-            const phoneField = document.getElementById('phone');
-            if (phoneField.value) {
+
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+              document.getElementById("formSuccess").style.display = "none";
+            }, 5000);
+          }, 1500);
+        });
+
+      // Form validation functions
+      function validateForm() {
+        let isValid = true;
+
+        // Validate required fields
+        const requiredFields = document.querySelectorAll(
+          "#contactForm [required]",
+        );
+        requiredFields.forEach((field) => {
+          const formGroup = field.closest(".form-group");
+
+          if (!field.value.trim()) {
+            formGroup.classList.add("error");
+            isValid = false;
+          } else {
+            formGroup.classList.remove("error");
+            formGroup.classList.add("success");
+          }
+        });
+
+        // Validate email format
+        const emailField = document.getElementById("email");
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (emailField.value && !emailRegex.test(emailField.value)) {
+          emailField.closest(".form-group").classList.add("error");
+          emailField.nextElementSibling.textContent =
+            "Please enter a valid email address";
+          isValid = false;
+        }
+
+        // Validate phone format (if provided)
+        const phoneField = document.getElementById("phone");
+        if (phoneField.value) {
+          const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+          if (!phoneRegex.test(phoneField.value.replace(/\D/g, ""))) {
+            phoneField.closest(".form-group").classList.add("error");
+            phoneField.nextElementSibling.textContent =
+              "Please enter a valid phone number";
+            isValid = false;
+          }
+        }
+
+        return isValid;
+      }
+
+      function resetFormValidation() {
+        // Remove all error/success classes
+        document.querySelectorAll(".form-group").forEach((group) => {
+          group.classList.remove("error", "success");
+        });
+
+        // Hide messages
+        document.getElementById("formSuccess").style.display = "none";
+        document.getElementById("formError").style.display = "none";
+      }
+
+      // Real-time validation
+      document
+        .querySelectorAll(
+          "#contactForm input, #contactForm textarea, #contactForm select",
+        )
+        .forEach((field) => {
+          field.addEventListener("blur", function () {
+            const formGroup = this.closest(".form-group");
+
+            if (this.hasAttribute("required") && !this.value.trim()) {
+              formGroup.classList.add("error");
+            } else {
+              formGroup.classList.remove("error");
+              formGroup.classList.add("success");
+
+              // Specific validations
+              if (this.type === "email" && this.value) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(this.value)) {
+                  formGroup.classList.add("error");
+                  this.nextElementSibling.textContent =
+                    "Please enter a valid email address";
+                }
+              }
+
+              if (this.id === "phone" && this.value) {
                 const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
-                if (!phoneRegex.test(phoneField.value.replace(/\D/g, ''))) {
-                    phoneField.closest('.form-group').classList.add('error');
-                    phoneField.nextElementSibling.textContent = 'Please enter a valid phone number';
-                    isValid = false;
+                if (!phoneRegex.test(this.value.replace(/\D/g, ""))) {
+                  formGroup.classList.add("error");
+                  this.nextElementSibling.textContent =
+                    "Please enter a valid phone number";
                 }
+              }
             }
-            
-            return isValid;
-        }
-        
-        function resetFormValidation() {
-            // Remove all error/success classes
-            document.querySelectorAll('.form-group').forEach(group => {
-                group.classList.remove('error', 'success');
-            });
-            
-            // Hide messages
-            document.getElementById('formSuccess').style.display = 'none';
-            document.getElementById('formError').style.display = 'none';
-        }
-        
-        // Real-time validation
-        document.querySelectorAll('#contactForm input, #contactForm textarea, #contactForm select').forEach(field => {
-            field.addEventListener('blur', function() {
-                const formGroup = this.closest('.form-group');
-                
-                if (this.hasAttribute('required') && !this.value.trim()) {
-                    formGroup.classList.add('error');
-                } else {
-                    formGroup.classList.remove('error');
-                    formGroup.classList.add('success');
-                    
-                    // Specific validations
-                    if (this.type === 'email' && this.value) {
-                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                        if (!emailRegex.test(this.value)) {
-                            formGroup.classList.add('error');
-                            this.nextElementSibling.textContent = 'Please enter a valid email address';
-                        }
-                    }
-                    
-                    if (this.id === 'phone' && this.value) {
-                        const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
-                        if (!phoneRegex.test(this.value.replace(/\D/g, ''))) {
-                            formGroup.classList.add('error');
-                            this.nextElementSibling.textContent = 'Please enter a valid phone number';
-                        }
-                    }
-                }
-            });
-            
-            field.addEventListener('input', function() {
-                const formGroup = this.closest('.form-group');
-                if (this.value.trim()) {
-                    formGroup.classList.remove('error');
-                }
-            });
-        });
-        
-        // Live chat simulation
-        function startLiveChat() {
-            alert('In a production environment, this would open a live chat widget.\n\nFor now, please use our contact form or call us directly.');
-        }
-        
-        // Auto-format phone number
-        document.getElementById('phone').addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
-            
-            if (value.length > 0) {
-                // Format as +X XXX XXX XXXX for Indian numbers
-                if (value.startsWith('91')) {
-                    value = '+91 ' + value.substring(2);
-                }
-                if (value.length > 4) {
-                    value = value.substring(0, 4) + ' ' + value.substring(4);
-                }
-                if (value.length > 8) {
-                    value = value.substring(0, 8) + ' ' + value.substring(8);
-                }
-                if (value.length > 13) {
-                    value = value.substring(0, 13);
-                }
+          });
+
+          field.addEventListener("input", function () {
+            const formGroup = this.closest(".form-group");
+            if (this.value.trim()) {
+              formGroup.classList.remove("error");
             }
-            
-            e.target.value = value;
+          });
         });
-        
-        // Scroll to form when clicking "Book Now"
-        document.querySelectorAll('a[href="#consultation-form"]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.getElementById('consultation-form').scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-                document.getElementById('fullName').focus();
+
+      // Auto-format phone number
+      document.getElementById("phone").addEventListener("input", function (e) {
+        let value = e.target.value.replace(/\D/g, "");
+
+        if (value.length > 0) {
+          // Format as +X XXX XXX XXXX for Indian numbers
+          if (value.startsWith("91")) {
+            value = "+91 " + value.substring(2);
+          }
+          if (value.length > 4) {
+            value = value.substring(0, 4) + " " + value.substring(4);
+          }
+          if (value.length > 8) {
+            value = value.substring(0, 8) + " " + value.substring(8);
+          }
+          if (value.length > 13) {
+            value = value.substring(0, 13);
+          }
+        }
+
+        e.target.value = value;
+      });
+
+      // Scroll to form when clicking "Book Now"
+      document
+        .querySelectorAll('a[href="#consultation-form"]')
+        .forEach((link) => {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            document.getElementById("consultation-form").scrollIntoView({
+              behavior: "smooth",
+              block: "start",
             });
+            document.getElementById("fullName").focus();
+          });
         });
     </script>
-</body>
+  </body>
 </html>
